@@ -13,7 +13,7 @@
   }
   
   .pace-progress, .pace:before {
-    top: 73px;
+    top: 0px;
     right: 0;
     left: 0;
     height: 3px;
@@ -34,7 +34,7 @@
     }
   
     .pace-activity {
-      display: block;
+      display: none;
       position: fixed;
       z-index: 6000;
       top: calc(73px + 15px);
