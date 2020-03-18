@@ -13,23 +13,38 @@ const appRoutes : Routes = [
   {
     path: '',
     redirectTo: '/welcome',
-    pathMatch: 'full'
+    pathMatch: 'full',
+    data: {
+      title: 'Exordium'
+    }
   },
   {
     path: 'welcome',
-    component: WelcomeComponent
+    component: WelcomeComponent,
+    data: {
+      title: 'Welcome'
+    }
   },
   {
     path: 'contact',
-    component: ContactComponent
+    component: ContactComponent,
+    data: {
+      title: 'Contact'
+    }
   },
   {
     path: 'members/signin',
-    component: SigninComponent
+    component: SigninComponent,
+    data: {
+      title: 'Signin'
+    }
   },
   {
     path: 'members/register',
-    component: RegisterComponent
+    component: RegisterComponent,
+    data: {
+      title: 'Register'
+    }
   }
 ]
 
