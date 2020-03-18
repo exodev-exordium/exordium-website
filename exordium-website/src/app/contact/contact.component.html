@@ -6,10 +6,7 @@
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
-                <a href="index.html">Home</a>
-              </li>
-              <li class="breadcrumb-item">
-                <a href="#">Pages</a>
+                <a href="/welcome">Exordium</a>
               </li>
               <li class="breadcrumb-item active" aria-current="page">Contact</li>
             </ol>
@@ -18,72 +15,13 @@
       </div>
       <div class="row my-4 my-md-6" data-aos="fade-up">
         <div class="col-lg-9 col-xl-8">
-          <h1 class="display-4">Get In Touch</h1>
+          <h1 class="display-4">Get In Touch With Us</h1>
           <p class="lead mb-0">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.</p>
         </div>
       </div>
     </div>
     <div class="divider">
       <img src="assets/img/dividers/divider-2.svg" alt="graphical divider" data-inject-svg />
-    </div>
-  </section>
-  <section>
-    <div class="container">
-      <div class="row text-center">
-        <div class="col-sm-4 mb-3 mb-sm-0">
-          <h3 class="h2">Visit</h3>
-          <span class="lead">
-            389 Greenpoint Ave
-            <br>Crown Heights, Brooklyn
-            <br>New York
-          </span>
-        </div>
-        <div class="col-sm-4 mb-3 mb-sm-0">
-          <h3 class="h2">Email</h3>
-          <a href="#" class="lead">hello@company.io</a>
-        </div>
-        <div class="col-sm-4 mb-3 mb-sm-0">
-          <h3 class="h2">Call</h3>
-          <span class="lead">
-            +61 4728 3928
-          </span>
-          <div class="text-small text-muted">Mon - Fri, 9am - 5pm</div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="p-0">
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <div class="min-vh-50 w-100 rounded shadow-3d" data-marker-image="assets/img/map-marker-2.svg" data-maps-api-key="INSERT_YOUR_GOOGLE_MAPS_API_KEY_HERE" data-address="389 Greenpoint Ave, Crown Heights, Brooklyn New York" data-map-zoom="14">
-            <div class="map-marker" data-address="389 Greenpoint Ave, Crown Heights, Brooklyn New York">
-              <div class="info-window" data-max-width="400">
-                <div class="container">
-                  <div class="row">
-                    <div class="col-12">
-                      <h5>Infowindows in Leap</h5>
-                    </div>
-                    <div class="col-4">
-                      <img alt="Leap Logo" class="w-100" src="assets/img/logo.svg">
-                    </div>
-                    <div class="col-8 pb-2">
-                      <p>
-                        We've made infowindows easy in Leap, so you can use any HTML in this infowindow on your map.
-                      </p>
-                      <h6 class="mb-0">Address</h6>
-                      <address>
-                        389 Greenpoint Ave Crown Heights, Brooklyn New York
-                      </address>
-                      <a target="_blank" href="#">... More Info</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
   <section>
@@ -95,12 +33,16 @@
             <p class="lead">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
             </p>
           </div>
-          <form action="/forms/smtp.php" data-form-email novalidate>
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+
+            <div *ngIf="success" class="alert alert-success mb-4" role="alert">{{success}}</div>
+            <div *ngIf="error" class="alert alert-danger mb-4" role="alert">{{error}}</div>
+
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
                   <label>Your Name *</label>
-                  <input name="contact-name" type="text" class="form-control" required>
+                  <input name="contact-name" type="text" formControlName="name" class="form-control" required>
                   <div class="invalid-feedback">
                     Please type your name.
                   </div>
@@ -109,40 +51,40 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label>Email Address *</label>
-                  <input name="contact-email" type="email" placeholder="you@yoursite.com" class="form-control" required>
+                  <input name="contact-email" type="email" formControlName="email" placeholder="you@yoursite.com" class="form-control" required>
+                  <div class="invalid-feedback">
+                    Please enter your email.
+                  </div>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label>Company Name</label>
-                  <input name="contact-company" type="text" class="form-control" required>
+                  <input name="contact-company" type="text" formControlName="companyName" class="form-control">
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label>Contact Number</label>
-                  <input name="contact-phone" type="tel" class="form-control" required>
+                  <input name="contact-phone" type="tel" formControlName="phone" class="form-control">
                 </div>
               </div>
               <div class="col-12">
                 <div class="form-group">
                   <label>Message:</label>
-                  <textarea class="form-control" name="contact-message" rows="10" placeholder="How can we help?"></textarea>
+                  <textarea formControlName="message" class="form-control" name="contact-message" rows="10" placeholder="How can we help?" required></textarea>
+                  <div class="invalid-feedback">
+                    What would you like to tell us?
+                  </div>
                 </div>
               </div>
               <div class="col-12">
                 <div data-recaptcha data-sitekey="INSERT_YOUR_RECAPTCHA_V2_SITEKEY_HERE"></div>
               </div>
               <div class="col">
-                <div class="d-none alert alert-success" role="alert" data-success-message>
-                  Thanks, a member of our team will be in touch shortly.
-                </div>
-                <div class="d-none alert alert-danger" role="alert" data-error-message>
-                  Please fill all fields correctly.
-                </div>
-                <button type="submit" class="btn btn-primary btn-loading" data-loading-text="Sending">
-                  <img class="icon" src="assets/img/icons/theme/code/loading.svg" alt="loading icon" data-inject-svg />
-                  <span>Send Enquiry</span>
+                <button type="submit" class="btn btn-primary btn-loading" [disabled]="loading">
+                  <i *ngIf="loading" class="fad fa-lg fa-fw fa-spin fa-spinner-third"></i>
+                  <span *ngIf="!loading">Send Enquiry</span>
                 </button>
               </div>
             </div>
