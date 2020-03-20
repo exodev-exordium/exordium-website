@@ -1,1 +1,96 @@
-<p>contact works!</p>
+<section class="bg-dark text-light header-inner p-0 jarallax position-relative" data-jarallax data-speed="0.2" data-overlay>
+    <img src="assets/img/inner-6.jpg" alt="Image" class="jarallax-img opacity-40">
+    <div class="container py-0">
+      <div class="row my-3">
+        <div class="col">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="/welcome">Exordium</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">Contact</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+      <div class="row my-4 my-md-6" data-aos="fade-up">
+        <div class="col-lg-9 col-xl-8">
+          <h1 class="display-4">Get In Touch With Us</h1>
+          <p class="lead mb-0">Need to get in contact with our support team? Feel free to send us a message!</p>
+        </div>
+      </div>
+    </div>
+    <div class="divider">
+      <img src="assets/img/dividers/divider-2.svg" alt="graphical divider" data-inject-svg />
+    </div>
+  </section>
+  <section>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-9 col-lg-8 col-xl-6">
+          <div class="text-center mb-4">
+            <h2 class="h1">Leave a message</h2>
+            <p class="lead">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+            </p>
+          </div>
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+
+            <div *ngIf="success" class="alert alert-success mb-4" role="alert">{{success}}</div>
+            <div *ngIf="error" class="alert alert-danger mb-4" role="alert">{{error}}</div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Your Name *</label>
+                  <input name="contact-name" type="text" formControlName="name" class="form-control" required>
+                  <div class="invalid-feedback">
+                    Please type your name.
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Email Address *</label>
+                  <input name="contact-email" type="email" formControlName="email" placeholder="you@yoursite.com" class="form-control" required>
+                  <div class="invalid-feedback">
+                    Please enter your email.
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Company Name</label>
+                  <input name="contact-company" type="text" formControlName="companyName" class="form-control">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Contact Number</label>
+                  <input name="contact-phone" type="tel" formControlName="phone" class="form-control">
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label>Message:</label>
+                  <textarea formControlName="message" class="form-control" name="contact-message" rows="10" placeholder="How can we help?" required></textarea>
+                  <div class="invalid-feedback">
+                    What would you like to tell us?
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div data-recaptcha data-sitekey="INSERT_YOUR_RECAPTCHA_V2_SITEKEY_HERE"></div>
+              </div>
+              <div class="col">
+                <button type="submit" class="btn btn-primary btn-loading" [disabled]="loading">
+                  <i *ngIf="loading" class="fad fa-lg fa-fw fa-spin fa-spinner-third"></i>
+                  <span *ngIf="!loading">Send Enquiry</span>
+                </button>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </section>
