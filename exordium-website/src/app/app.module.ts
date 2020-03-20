@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -10,6 +10,9 @@ import { InlineSVGModule } from 'ng-inline-svg';
 // Main App Components
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+// Page Components
+import { ScrollToTopComponent } from './components/window/scroll-to-top/scroll-to-top.component';
 
 // Error Reporting
 import { NotFoundComponent } from './pages/error/not-found/not-found.component';
@@ -93,13 +96,14 @@ const appRoutes : Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    ScrollToTopComponent,
+    NotFoundComponent,
+    ForbiddenComponent,
     WelcomeComponent,
     ContactComponent,
     SigninComponent,
     RegisterComponent,
-    AboutUsComponent,
-    NotFoundComponent,
-    ForbiddenComponent
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
@@ -115,6 +119,7 @@ const appRoutes : Routes = [
     )
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA] // remove error with the scrollToTop component
 })
 export class AppModule { }
