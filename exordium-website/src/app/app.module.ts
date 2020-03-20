@@ -5,8 +5,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+// Welcome Page
 import { WelcomeComponent } from './welcome/welcome.component';
-import { ContactComponent } from './contact/contact.component';
+
+// Company Pages
+import { AboutUsComponent } from './company/about-us/about-us.component';
+import { ContactComponent } from './company/contact/contact.component';
+
+// Members Pages
 import { SigninComponent } from './members/signin/signin.component';
 import { RegisterComponent } from './members/register/register.component';
 
@@ -27,7 +34,14 @@ const appRoutes : Routes = [
     }
   },
   {
-    path: 'contact',
+    path: 'company/about-us',
+    component: AboutUsComponent,
+    data: {
+      title: 'About Us'
+    }
+  },
+  {
+    path: 'company/contact',
     component: ContactComponent,
     data: {
       title: 'Contact'
@@ -55,7 +69,8 @@ const appRoutes : Routes = [
     WelcomeComponent,
     ContactComponent,
     SigninComponent,
-    RegisterComponent
+    RegisterComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
