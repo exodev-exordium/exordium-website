@@ -6,6 +6,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+// Error Reporting
+import { NotFoundComponent } from './error/not-found/not-found.component';
+import { ForbiddenComponent } from './error/forbidden/forbidden.component';
+
 // Welcome Page
 import { WelcomeComponent } from './welcome/welcome.component';
 
@@ -24,6 +28,20 @@ const appRoutes : Routes = [
     pathMatch: 'full',
     data: {
       title: 'Exordium'
+    }
+  },
+  {
+    path: 'error/not-found',
+    component: NotFoundComponent,
+    data: {
+      title: 'Not Found'
+    }
+  },
+  {
+    path: 'error/forbidden',
+    component: ForbiddenComponent,
+    data: {
+      title: 'Forbidden'
     }
   },
   {
@@ -60,6 +78,10 @@ const appRoutes : Routes = [
     data: {
       title: 'Register'
     }
+  },
+  {
+    path: '**',
+    redirectTo: 'error/not-found'
   }
 ]
 
@@ -70,7 +92,9 @@ const appRoutes : Routes = [
     ContactComponent,
     SigninComponent,
     RegisterComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    NotFoundComponent,
+    ForbiddenComponent
   ],
   imports: [
     BrowserModule,
