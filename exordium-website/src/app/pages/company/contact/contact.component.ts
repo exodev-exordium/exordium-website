@@ -19,9 +19,9 @@ export class ContactComponent implements OnInit {
   ngOnInit() {
     this.contactForm = this.formBuilder.group({
       name: [null, Validators.required],
-      email: [null, Validators.required, Validators.email],
+      email: [null, [Validators.required, Validators.email]],
       companyName: [null],
-      phone: [null],
+      phone: [null, Validators.pattern("[0-9 ]{11}")],
       message: [null, Validators.required]
     });
   }
@@ -33,6 +33,11 @@ export class ContactComponent implements OnInit {
   onSubmit() {
     this.loading = true;
 
+    if (this.contactForm.invalid) {
+      this.loading = false;
+      return;
+    }
+
 
     // send to api
 
@@ -40,6 +45,7 @@ export class ContactComponent implements OnInit {
     // Thanks, a member of our team will be in touch shortly.
     // Please fill all fields correctly.
     this.error = "Sending emails is currently disabled as this feature hasn't been completed yet.";
+
   }
 
 }
