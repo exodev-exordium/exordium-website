@@ -1,3 +1,22 @@
-.bg-theme-dark {
-    background: $primary-3;
+// about dropdown
+.about-dropdown {
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 999999;
+
+    .about-dark {
+        background: rgba($primary-3, 0.95);
+        backdrop-filter: saturate(180%) blur(20px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    }
+
+    .dropdown-tab.text-light .dropdown-item {
+        color: rgba(255, 255, 255, 0.5);
+
+        &:hover {
+            color: rgba(255, 255, 255, 1);
+        }
+    }
 }
