@@ -24,6 +24,9 @@ import { ForbiddenComponent } from './pages/error/forbidden/forbidden.component'
 // Welcome Page
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 
+// Pricing Page
+import { PricingComponent } from './pages/pricing/pricing.component';
+
 // Company Pages
 import { AboutUsComponent } from './pages/company/about-us/about-us.component';
 import { ContactComponent } from './pages/company/contact/contact.component';
@@ -49,6 +52,13 @@ const appRoutes : Routes = [
     component: WelcomeComponent,
     data: {
       title: 'Welcome'
+    }
+  },
+  {
+    path: 'pricing',
+    component: PricingComponent,
+    data: {
+      title: 'Pricing'
     }
   },
   {
@@ -166,7 +176,8 @@ const appRoutes : Routes = [
     AboutUsComponent,
     OurTeamComponent,
     ReviewsComponent,
-    JobsComponent
+    JobsComponent,
+    PricingComponent
   ],
   imports: [
     BrowserModule,
