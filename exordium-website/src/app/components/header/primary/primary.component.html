@@ -1,0 +1,112 @@
+<!-- Navigation -->
+<div class="navbar-container bg-primary-3">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary-3" data-sticky="top">
+      <div class="container">
+        <a class="navbar-brand fade-page" href="/">
+          <i class="far fa-wifi mr-1"></i>
+          Exordium
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fal fa-bars icon navbar-toggler-open"></i>
+          <i class="fal fa-times icon navbar-toggler-close"></i>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end">
+          <div class="py-2 py-lg-0">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a href="/welcome" class="nav-link" routerLink ="/welcome" routerLinkActive="active">
+                  <i class="fas fa-fw fa-home"></i>
+                  Welcome
+                </a>
+              </li>
+              <!-- mobile only version -->
+              <li class="nav-item d-xs-block d-lg-none">
+                <a href="/company/about-us" class="nav-link" routerLink ="/company/about-us" routerLinkActive="active">
+                  <i class="fas fa-fw fa-users"></i>
+                  About
+                </a>
+              </li>
+              <!-- desktop only version -->
+              <li class="nav-item d-none d-lg-block">
+                <a href="javascript:;" class="nav-link" data-toggle="collapse" data-target="#aboutNavbar" aria-controls="aboutNavbar" aria-expanded="false" aria-label="About">
+                  <i class="fas fa-fw fa-users"></i>
+                  About
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/company/contact" class="nav-link" routerLink ="/company/contact" routerLinkActive="active">
+                  <i class="fas fa-fw fa-comments"></i>
+                  Contact
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/pricing" class="nav-link" routerLink ="/pricing" routerLinkActive="active">
+                  <i class="fas fa-fw fa-shopping-cart"></i>
+                  Pricing
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/members/signin" class="nav-link" routerLink ="/members/signin" routerLinkActive="active">
+                  <i class="fas fa-fw fa-user-circle"></i>
+                  Members
+                </a>
+              </li>
+            </ul>
+          </div>
+          
+          <a href="/!/download" class="btn btn-primary ml-lg-3">Download Now</a>
+  
+        </div>
+      </div>
+    </nav>
+</div>
+  
+<!-- About MegaDropdown -->
+<div class="collapse aboutNav" id="aboutNavbar">
+    <div class="dropdown-tab about-dark text-light border-bottom">
+        <div class="container py-4" data-dropdown-content>
+        <div class="row">
+
+            <div class="col-lg col-md-6 mb-3 mb-lg-0">
+            <h5>General</h5>
+            <div>
+                <a class="dropdown-item fade-page" href="general/locations" routerLink ="/general/locations" routerLinkActive="active">Locations</a>
+                <a class="dropdown-item fade-page" href="general/network-status" routerLink ="/general/network-status" routerLinkActive="active">Network Status</a>
+                <a class="dropdown-item fade-page" href="general/support" routerLink ="/general/support" routerLinkActive="active">Support</a>
+            </div>
+            </div>
+
+            <div class="col-lg col-md-6 mb-3 mb-lg-0">
+            <h5>Resources</h5>
+            <div>
+                <a class="dropdown-item fade-page" href="resources/reasons-for-a-vpn" routerLink ="/resources/reasons-for-a-vpn" routerLinkActive="active">Reasons for a VPN</a>
+                <a class="dropdown-item fade-page" href="resources/tutorials" routerLink ="/resources/tutorials" routerLinkActive="active">Tutorials</a>
+                <a class="dropdown-item fade-page" href="resources/documentation" routerLink ="/resources/documentation" routerLinkActive="active">Documentation</a>
+            </div>
+            </div>
+
+            <div class="col-lg col-md-6 mb-3 mb-lg-0">
+            <h5>Blog</h5>
+            <div>
+                <a class="dropdown-item fade-page" href="blog/why-exordium" routerLink ="/blog/why-exordium" routerLinkActive="active">Why Exordium?</a>
+                <a class="dropdown-item fade-page" href="blog/browsing-anonymously" routerLink ="/blog/browsing-anonymously" routerLinkActive="active">Browsing Anonymouysly</a>
+                <a class="dropdown-item fade-page" href="blog/public-security" routerLink ="/blog/public-security" routerLinkActive="active">Public Security</a>
+                <a class="dropdown-item fade-page" href="blog/data-theft" routerLink ="/blog/data-theft" routerLinkActive="active">Data Theft</a>
+                <a class="dropdown-item fade-page" href="blog/hiding-your-real-location" routerLink ="/blog/hiding-your-real-location" routerLinkActive="active">Hiding Your Real Location</a>
+            </div>
+            </div>
+
+            <div class="col-lg col-md-6 mb-3 mb-lg-0">
+            <h5>Company</h5>
+            <div>
+                <a class="dropdown-item fade-page" href="/company/about-us" routerLink ="/company/about-us" routerLinkActive="active">About Us</a>
+                <a class="dropdown-item fade-page" href="/company/our-team" routerLink ="/company/our-team" routerLinkActive="active">Our Team</a>
+                <a class="dropdown-item fade-page" href="/company/reviews" routerLink ="/company/reviews" routerLinkActive="active">Service Reviews</a>
+                <a class="dropdown-item fade-page" href="/company/jobs" routerLink ="/company/jobs" routerLinkActive="active">Jobs at Exordium</a>
+            </div>
+            </div>
+
+        </div>
+        </div>
+    </div>
+</div>
