@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, RouterLinkActive } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // ReCaptcha
@@ -15,6 +15,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 // Page Components
+import { PrimaryHeaderComponent } from './components/header/primary/primary.component';
+import { PrimaryFooterComponent } from './components/footer/primary/primary.component';
 import { ScrollToTopComponent } from './components/window/scroll-to-top/scroll-to-top.component';
 
 // Error Reporting
@@ -166,6 +168,8 @@ const appRoutes : Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    PrimaryHeaderComponent,
+    PrimaryFooterComponent,
     ScrollToTopComponent,
     NotFoundComponent,
     ForbiddenComponent,
