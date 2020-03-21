@@ -3,6 +3,9 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+// ReCaptcha
+import { RecaptchaModule } from 'ng-recaptcha';
+
 // SVG Inline Injector
 import { HttpClientModule } from '@angular/common/http';
 import { InlineSVGModule } from 'ng-inline-svg';
@@ -24,6 +27,9 @@ import { WelcomeComponent } from './pages/welcome/welcome.component';
 // Company Pages
 import { AboutUsComponent } from './pages/company/about-us/about-us.component';
 import { ContactComponent } from './pages/company/contact/contact.component';
+import { OurTeamComponent } from './pages/company/our-team/our-team.component';
+import { ReviewsComponent } from './pages/company/reviews/reviews.component';
+import { JobsComponent } from './pages/company/jobs/jobs.component';
 
 // Members Pages
 import { SigninComponent } from './pages/members/signin/signin.component';
@@ -39,20 +45,6 @@ const appRoutes : Routes = [
     }
   },
   {
-    path: 'error/not-found',
-    component: NotFoundComponent,
-    data: {
-      title: 'Not Found'
-    }
-  },
-  {
-    path: 'error/forbidden',
-    component: ForbiddenComponent,
-    data: {
-      title: 'Forbidden'
-    }
-  },
-  {
     path: 'welcome',
     component: WelcomeComponent,
     data: {
@@ -60,32 +52,100 @@ const appRoutes : Routes = [
     }
   },
   {
-    path: 'company/about-us',
-    component: AboutUsComponent,
-    data: {
-      title: 'About Us'
-    }
+    path: 'general',
+    children: [
+
+    ]
   },
   {
-    path: 'company/contact',
-    component: ContactComponent,
-    data: {
-      title: 'Contact'
-    }
+    path: 'resources',
+    children: [
+      
+    ]
   },
   {
-    path: 'members/signin',
-    component: SigninComponent,
-    data: {
-      title: 'Signin'
-    }
+    path: 'blog',
+    children: [
+      
+    ]
   },
   {
-    path: 'members/register',
-    component: RegisterComponent,
-    data: {
-      title: 'Register'
-    }
+    path: 'company',
+    children: [
+      {
+        path: 'contact',
+        component: ContactComponent,
+        data: {
+          title: 'Contact'
+        }
+      },
+      {
+        path: 'about-us',
+        component: AboutUsComponent,
+        data: {
+          title: 'About Us'
+        }
+      },
+      {
+        path: 'our-team',
+        component: OurTeamComponent,
+        data: {
+          title: 'Our Team'
+        }
+      },
+      {
+        path: 'reviews',
+        component: ReviewsComponent,
+        data: {
+          title: 'Service Reviews'
+        }
+      },
+      {
+        path: 'jobs',
+        component: JobsComponent,
+        data: {
+          title: 'Jobs at Exordium'
+        }
+      }
+    ]
+  },
+  {
+    path: 'members',
+    children: [
+      {
+        path: 'signin',
+        component: SigninComponent,
+        data: {
+          title: 'Signin'
+        }
+      },
+      {
+        path: 'register',
+        component: RegisterComponent,
+        data: {
+          title: 'Register'
+        }
+      },
+    ]
+  },
+  {
+    path: 'error',
+    children: [
+      {
+        path: 'not-found',
+        component: NotFoundComponent,
+        data: {
+          title: 'Not Found'
+        }
+      },
+      {
+        path: 'forbidden',
+        component: ForbiddenComponent,
+        data: {
+          title: 'Forbidden'
+        }
+      },
+    ]
   },
   {
     path: '**',
@@ -103,10 +163,14 @@ const appRoutes : Routes = [
     ContactComponent,
     SigninComponent,
     RegisterComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    OurTeamComponent,
+    ReviewsComponent,
+    JobsComponent
   ],
   imports: [
     BrowserModule,
+    RecaptchaModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule, 
