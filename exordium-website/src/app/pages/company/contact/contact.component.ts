@@ -1,8 +1,15 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+import {
+  jarallax,
+  jarallaxElement
+} from 'jarallax';
+
 import * as jQuery from 'jquery';
 import 'bootstrap-notify';
+
+import { RecaptchaModule } from 'ng-recaptcha';
 
 let $ = jQuery;
 
@@ -13,9 +20,6 @@ let $ = jQuery;
 })
 export class ContactComponent implements OnInit {
   contactForm: FormGroup;
-
-  success = '';
-  error = '';
 
   constructor(
     private renderer: Renderer2,
@@ -29,6 +33,11 @@ export class ContactComponent implements OnInit {
       companyName: [null],
       phone: [null, Validators.pattern("[0-9 ]{11}")],
       message: [null, Validators.required]
+    });
+
+    jarallaxElement();
+    jarallax(document.querySelectorAll('.jarallax'), {
+      speed: 0.6
     });
   }
 
@@ -89,6 +98,11 @@ export class ContactComponent implements OnInit {
       sourceButton.removeClass("m-progress");
     }, 2000);
 
+  }
+
+  // for testing
+  public resolved (captchaResponse: string) {
+    console.log(`ReCaptcha Dev: ${captchaResponse}`);
   }
 
 }
