@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {
+  jarallax,
+  jarallaxElement,
+  jarallaxVideo
+} from 'jarallax';
 
 @Component({
   selector: 'app-welcome',
@@ -9,7 +14,12 @@ export class WelcomeComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    jarallaxElement();
+    
+    jarallax(document.querySelectorAll('.jarallax'), {
+      speed: 0.2
+    });
   }
 
 }
