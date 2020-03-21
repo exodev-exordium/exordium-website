@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
+import {
+  jarallax,
+  jarallaxElement
+} from 'jarallax';
+
 @Component({
   selector: 'app-about-us',
   templateUrl: './about-us.component.html',
@@ -9,7 +14,11 @@ export class AboutUsComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    jarallaxElement();
+    jarallax(document.querySelectorAll('.jarallax'), {
+      speed: 0.6
+    });
   }
 
 }
