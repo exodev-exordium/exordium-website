@@ -15,6 +15,10 @@ export class AboutUsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.jarallaxInit();
+  }
+
+  jarallaxInit() {
     jarallaxElement();
     jarallax(document.querySelectorAll('.jarallax'), {
       speed: 0.6

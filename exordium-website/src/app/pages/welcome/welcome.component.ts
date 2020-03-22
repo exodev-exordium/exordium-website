@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
+import { HttpClientModule } from '@angular/common/http';
+import { InlineSVGModule } from 'ng-inline-svg';
+
 import Typed from 'typed.js';
 import {
   jarallax,
   jarallaxElement
 } from 'jarallax';
-
 
 @Component({
   selector: 'app-welcome',
@@ -17,6 +19,18 @@ export class WelcomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.typedjsInit();
+    this.jarallaxInit();
+  }
+
+  jarallaxInit() {
+    jarallaxElement();
+    jarallax(document.querySelectorAll('.jarallax'), {
+      speed: 0.2
+    });
+  }
+
+  typedjsInit() {
     var options = {
       strings: [
         'Secure Internet.^2000', 
@@ -27,14 +41,7 @@ export class WelcomeComponent implements OnInit {
       loop: true,
       typeSpeed: 45
     };
-    
     var typed = new Typed('.typed', options);
-
-    jarallaxElement();
-    
-    jarallax(document.querySelectorAll('.jarallax'), {
-      speed: 0.2
-    });
   }
 
 }

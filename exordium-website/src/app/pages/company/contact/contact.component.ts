@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import {
@@ -22,7 +22,6 @@ export class ContactComponent implements OnInit {
   contactForm: FormGroup;
 
   constructor(
-    private renderer: Renderer2,
     private formBuilder: FormBuilder
   ) { }
 
@@ -35,6 +34,10 @@ export class ContactComponent implements OnInit {
       message: [null, Validators.required]
     });
 
+    this.jarallaxInit();
+  }
+
+  jarallaxInit() {
     jarallaxElement();
     jarallax(document.querySelectorAll('.jarallax'), {
       speed: 0.6
