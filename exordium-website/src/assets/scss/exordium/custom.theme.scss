@@ -22,7 +22,12 @@ div.aboutNav {
         color: rgba(255, 255, 255, 0.5);
 
         &:hover {
-            color: rgba(255, 255, 255, 1);
+            color: rgba(255, 255, 255, 1) !important;
+        }
+
+        &:active,
+        &.active {
+            color: rgba(255, 255, 255, .75);
         }
     }
 }
