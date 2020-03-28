@@ -39,6 +39,7 @@ import { JobsComponent } from './pages/company/jobs/jobs.component';
 // Members Pages
 import { SigninComponent } from './pages/members/signin/signin.component';
 import { RegisterComponent } from './pages/members/register/register.component';
+import { AboutComponent } from './components/navbar/about/about.component';
 
 const appRoutes : Routes = [
   {
@@ -181,7 +182,8 @@ const appRoutes : Routes = [
     OurTeamComponent,
     ReviewsComponent,
     JobsComponent,
-    PricingComponent
+    PricingComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
