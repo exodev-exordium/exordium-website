@@ -90,9 +90,10 @@
                 </div>
                 <div class="col-12">
                   <div class="form-group">
-                    <re-captcha
-                      (resolved)="resolved($event)"
-                      siteKey="6LeB5uIUAAAAAMQWnwCUpUHbdsHO4iV4emdn9KOL"
+                    <label>Prove that you're human *</label>
+                    <re-captcha 
+                      (resolved)="recaptchaResolved($event)"
+                      formControlName="recaptcha"
                     ></re-captcha>
                   </div>
                 </div>

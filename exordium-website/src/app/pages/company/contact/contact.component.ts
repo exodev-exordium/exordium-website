@@ -9,7 +9,6 @@ import {
 import * as jQuery from 'jquery';
 import 'bootstrap-notify';
 
-import { RecaptchaModule } from 'ng-recaptcha';
 
 let $ = jQuery;
 
@@ -31,7 +30,8 @@ export class ContactComponent implements OnInit {
       email: [null, [Validators.required, Validators.email]],
       companyName: [null],
       phone: [null, Validators.pattern("[0-9 ]{11}")],
-      message: [null, Validators.required]
+      message: [null, Validators.required],
+      recaptcha: [null, Validators.required]
     });
 
     this.jarallaxInit();
@@ -104,8 +104,8 @@ export class ContactComponent implements OnInit {
   }
 
   // for testing
-  public resolved (captchaResponse: string) {
-    console.log(`ReCaptcha Dev: ${captchaResponse}`);
+  recaptchaResolved (event: string) {
+    console.log(`Recaptcha Event: ${event}`);
   }
 
 }

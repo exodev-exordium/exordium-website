@@ -78,3 +78,13 @@ textarea.ng-valid {
         transition: width 2s ease;
     }
 }
+
+// Members page, bottom overlay link
+.btn-link-overlay {
+    font-weight: bold;
+    color: rgba(255,255,255,.75);
+
+    &:hover {
+        color: rgba(255,255,255,1) !important;
+    }
+}
