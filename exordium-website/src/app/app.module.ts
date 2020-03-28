@@ -1,10 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { HashLocationStrategy, LocationStrategy  } from '@angular/common';
 import { Routes, RouterModule, RouterLinkActive } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // ReCaptcha
-import { RecaptchaModule } from 'ng-recaptcha';
+import { RecaptchaModule, RecaptchaFormsModule, RECAPTCHA_SETTINGS, RecaptchaSettings } from 'ng-recaptcha';
 
 // SVG Inline Injector
 import { HttpClientModule } from '@angular/common/http';
@@ -16,6 +17,7 @@ import { AppComponent } from './app.component';
 
 // Page Components
 import { PrimaryHeaderComponent } from './components/header/primary/primary.component';
+import { AboutComponent } from './components/navbar/about/about.component'; // about nav
 import { PrimaryFooterComponent } from './components/footer/primary/primary.component';
 import { ScrollToTopComponent } from './components/window/scroll-to-top/scroll-to-top.component';
 
@@ -39,7 +41,6 @@ import { JobsComponent } from './pages/company/jobs/jobs.component';
 // Members Pages
 import { SigninComponent } from './pages/members/signin/signin.component';
 import { RegisterComponent } from './pages/members/register/register.component';
-import { AboutComponent } from './components/navbar/about/about.component';
 
 const appRoutes : Routes = [
   {
@@ -170,6 +171,7 @@ const appRoutes : Routes = [
   declarations: [
     AppComponent,
     PrimaryHeaderComponent,
+    AboutComponent,
     PrimaryFooterComponent,
     ScrollToTopComponent,
     NotFoundComponent,
@@ -182,12 +184,12 @@ const appRoutes : Routes = [
     OurTeamComponent,
     ReviewsComponent,
     JobsComponent,
-    PricingComponent,
-    AboutComponent
+    PricingComponent
   ],
   imports: [
     BrowserModule,
-    RecaptchaModule,
+    RecaptchaModule, 
+    RecaptchaFormsModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule, 
@@ -199,7 +201,18 @@ const appRoutes : Routes = [
       }
     )
   ],
-  providers: [],
+  providers: [
+    {
+      provide : LocationStrategy,
+      useClass: HashLocationStrategy
+    },
+    {
+      provide: RECAPTCHA_SETTINGS,
+      useValue: {
+        siteKey: '6LeB5uIUAAAAAMQWnwCUpUHbdsHO4iV4emdn9KOL'
+      } as RecaptchaSettings,
+    }
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA] // remove error with the scrollToTop component
 })
