@@ -31,7 +31,7 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "src/assets/js/pace.js",
+              "src/assets/js/pace/pace.js",
               "src/assets/js/jquery.min.js",
               "src/assets/js/popper.min.js",
               "src/assets/js/bootstrap.js",
@@ -48,6 +48,7 @@
               "src/assets/js/prism.js",
               "src/assets/js/scrollMonitor.js",
               "src/assets/js/smooth-scroll.polyfills.min.js",
+              "src/assets/js/svg-injector.umd.production.js",
               "src/assets/js/twitterFetcher_min.js",
               "src/assets/js/theme.js"
             ]
