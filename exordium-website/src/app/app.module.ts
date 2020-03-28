@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { HashLocationStrategy, LocationStrategy  } from '@angular/common';
 import { Routes, RouterModule, RouterLinkActive } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -199,7 +200,12 @@ const appRoutes : Routes = [
       }
     )
   ],
-  providers: [],
+  providers: [
+    {
+      provide : LocationStrategy,
+      useClass: HashLocationStrategy
+    }
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA] // remove error with the scrollToTop component
 })
