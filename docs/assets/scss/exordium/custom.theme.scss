@@ -1,0 +1,80 @@
+// About Section and Dropdown
+section.aboutNav {
+    background: rgba($primary-3, 1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+div.aboutNav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 999999;
+
+    .about-dark {
+        background: rgba($primary-3, 0.95);
+        backdrop-filter: saturate(180%) blur(20px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    }
+}
+section.aboutNav,
+div.aboutNav {
+    .dropdown-tab.text-light .dropdown-item {
+        color: rgba(255, 255, 255, 0.5);
+
+        &:hover {
+            color: rgba(255, 255, 255, 1) !important;
+        }
+
+        &:active,
+        &.active {
+            color: rgba(255, 255, 255, .75);
+        }
+    }
+}
+
+// ng-invalid and ng-valid fields
+button,
+input,
+textarea {
+    -webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+}
+
+input.ng-invalid, 
+input.ng-valid,
+textarea.ng-invalid, 
+textarea.ng-valid {
+    padding-right: 2.375rem;
+    background-repeat: no-repeat;
+    background-position: center right calc(.375em + .1875rem);
+    background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+}
+
+input.ng-invalid,
+textarea.ng-invalid {
+    border-color: #dc3545;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23dc3545' viewBox='-2 -2 7 7'%3e%3cpath stroke='%23dc3545' d='M0 0l3 3m0-3L0 3'/%3e%3ccircle r='.5'/%3e%3ccircle cx='3' r='.5'/%3e%3ccircle cy='3' r='.5'/%3e%3ccircle cx='3' cy='3' r='.5'/%3e%3c/svg%3E");
+}
+input.ng-valid,
+textarea.ng-valid {
+    border-color: #28a745;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+}
+
+// bootstrap-notify
+.notifyAlert {
+    position: absolute;
+    height: 3px !important;
+    min-height: 3px !important;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 0 !important;
+
+    .progress-bar {
+        border-radius: 0px 2px 2px 0px !important;
+        transition: width 2s ease;
+    }
+}
