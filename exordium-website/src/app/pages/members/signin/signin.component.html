@@ -29,25 +29,43 @@
             <div class="card shadow-sm mb-4">
                 <div class="card-body">
       
-                  <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+                  <form name="form" [formGroup]="signinForm" (ngSubmit)="onSubmit()">
       
                     <div class="row">
                       <div class="col-12">
                         <div class="form-group">
                           <label>Username *</label>
-                          <input name="signin-username" type="text" formControlName="username" placeholder="deadpool12" class="form-control" required>
+
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend" [ngClass]="signinForm.controls.username.invalid ? 'ng-invalid': 'ng-valid'">
+                              <span class="input-group-text">
+                                <i class="fa fa-fw fa-user"></i>
+                              </span>
+                            </div>
+                            <input name="username" type="text" formControlName="username" placeholder="deadpool12" class="form-control" required>
+                          </div>
                           <div class="invalid-feedback">
                             Please type your username.
                           </div>
+
                         </div>
                       </div>
                       <div class="col-12">
                         <div class="form-group">
                           <label>Password *</label>
-                          <input name="signin-password" type="password" formControlName="password" placeholder="************" class="form-control" required>
+
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend" [ngClass]="signinForm.controls.password.invalid ? 'ng-invalid': 'ng-valid'">
+                              <span class="input-group-text">
+                                <i class="fa fa-fw fa-lock"></i>
+                              </span>
+                            </div>
+                            <input name="password" type="password" formControlName="password" placeholder="************" class="form-control" required>
+                          </div>
                           <div class="invalid-feedback">
                             Please enter your email.
                           </div>
+                          
                         </div>
                       </div>
                       <div class="col-12">
