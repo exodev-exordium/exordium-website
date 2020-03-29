@@ -32,33 +32,122 @@
                   <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
       
                     <div class="row">
+
                       <div class="col-6">
                         <div class="form-group">
                           <label>Username *</label>
-                          <input name="signin-username" type="text" formControlName="username" placeholder="deadpool1337" class="form-control" required>
+
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend" [ngClass]="registerForm.controls.username.invalid ? 'ng-invalid': 'ng-valid'">
+                              <span class="input-group-text">
+                                <i class="fa fa-fw fa-user"></i>
+                              </span>
+                            </div>
+                            <input name="username" type="text" formControlName="username" placeholder="deadpool" class="form-control" required>
+                          </div>
                           <div class="invalid-feedback">
                             Please type your username.
                           </div>
+
                         </div>
                       </div>
+
                       <div class="col-6">
                         <div class="form-group">
                           <label>Email *</label>
-                          <input name="signin-email" type="email" formControlName="email" placeholder="ryan@deadpool.com" class="form-control" required>
-                          <div class="invalid-feedback">
-                            Please type your email.
+
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend" [ngClass]="registerForm.controls.email.invalid ? 'ng-invalid': 'ng-valid'">
+                              <span class="input-group-text">
+                                <i class="fa fa-fw fa-envelope"></i>
+                              </span>
+                            </div>
+                            <input name="email" type="email" formControlName="email" placeholder="ryan@deadpool.com" class="form-control" required>
                           </div>
+                          <div class="invalid-feedback">
+                            Please type your email address.
+                          </div>
+
+                        </div>
+                      </div>
+
+                      <div class="col-6">
+                        <div class="form-group">
+                          <label>Real Name</label>
+
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend" [ngClass]="registerForm.controls.realname.invalid ? 'ng-invalid': 'ng-valid'">
+                              <span class="input-group-text">
+                                <i class="fa fa-fw fa-person-sign"></i>
+                              </span>
+                            </div>
+                            <input name="realname" type="text" formControlName="realname" placeholder="Ryan Reynolds" class="form-control" required>
+                          </div>
+                          <div class="invalid-feedback">
+                            Please type your name.
+                          </div>
+
+                        </div>
+                      </div>
+
+                      <div class="col-6">
+                        <div class="form-group">
+                          <label>Country * </label>
+
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend" [ngClass]="registerForm.controls.country.invalid ? 'ng-invalid': 'ng-valid'">
+                              <span class="input-group-text">
+                                <i class="fa fa-fw fa-globe"></i>
+                              </span>
+                            </div>
+                            <select name="country" formControlName="country" class="form-control selectpicker" data-live-search="true" required>
+                              <option [ngValue]="country.code" *ngFor="let country of countries">{{country.name}}</option>
+                            </select>
+                          </div>
+                          <div class="invalid-feedback">
+                            Please select your country.
+                          </div>
+
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <div class="form-group">
+                          <label>Password *</label>
+
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend" [ngClass]="registerForm.controls.password1.invalid ? 'ng-invalid': 'ng-valid'">
+                              <span class="input-group-text">
+                                <i class="fa fa-fw fa-key"></i>
+                              </span>
+                            </div>
+                            <input name="password1" type="text" formControlName="password1" placeholder="*************" class="form-control" required>
+                          </div>
+                          <div class="invalid-feedback">
+                            Please type your desired password.
+                          </div>
+
                         </div>
                       </div>
                       <div class="col-12">
                         <div class="form-group">
-                          <label>Password *</label>
-                          <input name="signin-password" type="password" formControlName="password" placeholder="************" class="form-control" required>
-                          <div class="invalid-feedback">
-                            Please enter your email.
+                          <label>Verify Password *</label>
+
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend" [ngClass]="registerForm.controls.password2.invalid ? 'ng-invalid': 'ng-valid'">
+                              <span class="input-group-text">
+                                <i class="fa fa-fw fa-lock"></i>
+                              </span>
+                            </div>
+                            <input name="password2" type="text" formControlName="password2" placeholder="*************" class="form-control" required>
                           </div>
+                          <div class="invalid-feedback">
+                            Verify that your passwords match.
+                          </div>
+
                         </div>
                       </div>
+
                       <div class="col-12">
                         <div class="form-group">
                           <label>Prove that you're human *</label>
@@ -71,17 +160,11 @@
                       <div class="col-12 mt-2">
 
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-12">
                                 <button type="submit" class="btn btn-primary submitRegister">
-                                    <i class="fa fa-fw fa-paper-plane"></i>
-                                    Sign in
+                                    <i class="fa fa-fw fa-user-plus"></i>
+                                    Register
                                 </button>
-                            </div>
-                            <div class="col-6 text-right">
-                                <a href="javascript:;" class="btn btn-dark">
-                                    <i class="fa fa-fw fa-lock"></i>
-                                    Password Reset?
-                                </a>
                             </div>
                         </div>
 

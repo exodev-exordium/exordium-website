@@ -34,18 +34,18 @@
                     <div class="row">
                       <div class="col-12">
                         <div class="form-group">
-                          <label>Username *</label>
+                          <label>Email *</label>
 
                           <div class="input-group mb-3">
-                            <div class="input-group-prepend" [ngClass]="signinForm.controls.username.invalid ? 'ng-invalid': 'ng-valid'">
+                            <div class="input-group-prepend" [ngClass]="signinForm.controls.email.invalid ? 'ng-invalid': 'ng-valid'">
                               <span class="input-group-text">
-                                <i class="fa fa-fw fa-user"></i>
+                                <i class="fa fa-fw fa-envelope"></i>
                               </span>
                             </div>
-                            <input name="username" type="text" formControlName="username" placeholder="deadpool12" class="form-control" required>
+                            <input name="email" type="email" formControlName="email" placeholder="ryan@deadpool.com" class="form-control" required>
                           </div>
                           <div class="invalid-feedback">
-                            Please type your username.
+                            Please type your email address.
                           </div>
 
                         </div>
@@ -77,20 +77,21 @@
                           ></re-captcha>
                         </div>
                       </div>
+
                       <div class="col-12 mt-2">
 
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-md-6">
                                 <button type="submit" class="btn btn-primary submitSignin">
                                     <i class="fa fa-fw fa-paper-plane"></i>
                                     Sign in
                                 </button>
                             </div>
-                            <div class="col-6 text-right">
-                                <a href="javascript:;" class="btn btn-dark">
-                                    <i class="fa fa-fw fa-lock"></i>
-                                    Password Reset?
-                                </a>
+                            <div class="col-md-6 text-right">
+                              <div class="custom-control custom-switch mt-1">
+                                <input name="remember" type="checkbox" formControlName="remember" class="custom-control-input" id="rememberme">
+                                <label class="custom-control-label" for="rememberme">Remember your details for 30 days</label>
+                              </div>
                             </div>
                         </div>
 
