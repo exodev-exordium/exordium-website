@@ -51,7 +51,8 @@
               "src/assets/js/svg-injector.umd.production.js",
               "src/assets/js/twitterFetcher_min.js",
               "src/assets/js/typed.min.js",
-              "src/assets/js/theme.js"
+              "src/assets/js/theme.js",
+              "node_modules/bootstrap-select/dist/js/bootstrap-select.js"
             ]
           },
           "configurations": {
