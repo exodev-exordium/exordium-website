@@ -1,9 +1,10 @@
 
 // import plugins
-@import "plugins/fontawesome";
-@import "plugins/pace";
+@import "plugins/fontawesome/fontawesome";
+@import "plugins/pace/pace";
+@import "plugins/bootstrap-select/bootstrap-select";
 
 // custom exordium overwrites
-@import "exordium/custom.progress.scss";
-@import "exordium/custom.loader.scss";
-@import "exordium/custom.theme.scss";
+@import "exordium/custom.progress";
+@import "exordium/custom.loader";
+@import "exordium/custom.theme";
