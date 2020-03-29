@@ -50,6 +50,7 @@
               "src/assets/js/smooth-scroll.polyfills.min.js",
               "src/assets/js/svg-injector.umd.production.js",
               "src/assets/js/twitterFetcher_min.js",
+              "src/assets/js/typed.min.js",
               "src/assets/js/theme.js"
             ]
           },
