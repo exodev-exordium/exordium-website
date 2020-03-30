@@ -9,7 +9,6 @@ import * as jQuery from 'jquery';
 let $ = jQuery;
 
 import 'bootstrap-notify';
-import 'bootstrap-select';
 
 @Component({
   selector: 'app-register',
@@ -41,7 +40,7 @@ export class RegisterComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    $('select').selectpicker('refresh');
+    $('select').selectpicker('render');
   }
 
   initPlugins() {

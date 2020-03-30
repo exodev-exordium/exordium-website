@@ -111,6 +111,13 @@
                             <select name="country" formControlName="country" class="form-control" data-live-search="true" required>
                               <option [ngValue]="country.code" *ngFor="let country of countries">{{country.name}}</option>
                             </select>
+
+                            <ng-select 
+                              class="form-control"
+                              [items]="countries"
+                              bindLabel="name"
+                              required>
+                            </ng-select>
                           </div>
                           <div class="invalid-feedback">
                             Please select your country.
