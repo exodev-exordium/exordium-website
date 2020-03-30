@@ -25,7 +25,7 @@
       </div>
 
       <div class="row justify-content-center my-3">
-        <div class="col-lg-6">
+        <div class="col-lg-7">
             <div class="card shadow-sm mb-4">
                 <div class="card-body">
       
@@ -38,7 +38,9 @@
                           <label>Username *</label>
 
                           <div class="input-group mb-3">
-                            <div class="input-group-prepend" [ngClass]="registerForm.controls.username.invalid ? 'ng-invalid': 'ng-valid'">
+                            <div class="input-group-prepend"
+                              [ngClass]="{'ng-invalid': registerForm.controls.username.invalid && registerForm.controls.username.dirty,
+                                          'ng-valid': registerForm.controls.username.valid && registerForm.controls.username.dirty}">
                               <span class="input-group-text">
                                 <i class="fa fa-fw fa-user"></i>
                               </span>
@@ -57,7 +59,9 @@
                           <label>Email *</label>
 
                           <div class="input-group mb-3">
-                            <div class="input-group-prepend" [ngClass]="registerForm.controls.email.invalid ? 'ng-invalid': 'ng-valid'">
+                            <div class="input-group-prepend"
+                              [ngClass]="{'ng-invalid': registerForm.controls.email.invalid && registerForm.controls.email.dirty,
+                                          'ng-valid': registerForm.controls.email.valid && registerForm.controls.email.dirty}">
                               <span class="input-group-text">
                                 <i class="fa fa-fw fa-envelope"></i>
                               </span>
@@ -76,7 +80,9 @@
                           <label>Real Name</label>
 
                           <div class="input-group mb-3">
-                            <div class="input-group-prepend" [ngClass]="registerForm.controls.realname.invalid ? 'ng-invalid': 'ng-valid'">
+                            <div class="input-group-prepend"
+                              [ngClass]="{'ng-invalid': registerForm.controls.realname.invalid && registerForm.controls.realname.dirty,
+                                          'ng-valid': registerForm.controls.realname.valid && registerForm.controls.realname.dirty}">
                               <span class="input-group-text">
                                 <i class="fa fa-fw fa-person-sign"></i>
                               </span>
@@ -95,7 +101,9 @@
                           <label>Country * </label>
 
                           <div class="input-group mb-3">
-                            <div class="input-group-prepend" [ngClass]="registerForm.controls.country.invalid ? 'ng-invalid': 'ng-valid'">
+                            <div class="input-group-prepend"
+                              [ngClass]="{'ng-invalid': registerForm.controls.country.invalid && registerForm.controls.country.dirty,
+                                          'ng-valid': registerForm.controls.country.valid && registerForm.controls.country.dirty}">
                               <span class="input-group-text">
                                 <i class="fa fa-fw fa-globe"></i>
                               </span>
@@ -116,7 +124,9 @@
                           <label>Password *</label>
 
                           <div class="input-group mb-3">
-                            <div class="input-group-prepend" [ngClass]="registerForm.controls.password1.invalid ? 'ng-invalid': 'ng-valid'">
+                            <div class="input-group-prepend"
+                              [ngClass]="{'ng-invalid': registerForm.controls.password1.invalid && registerForm.controls.password1.dirty,
+                                          'ng-valid': registerForm.controls.password1.valid && registerForm.controls.password1.dirty}">
                               <span class="input-group-text">
                                 <i class="fa fa-fw fa-key"></i>
                               </span>
@@ -134,7 +144,9 @@
                           <label>Verify Password *</label>
 
                           <div class="input-group mb-3">
-                            <div class="input-group-prepend" [ngClass]="registerForm.controls.password2.invalid ? 'ng-invalid': 'ng-valid'">
+                            <div class="input-group-prepend"
+                              [ngClass]="{'ng-invalid': registerForm.controls.password2.invalid && registerForm.controls.password2.dirty,
+                                          'ng-valid': registerForm.controls.password2.valid && registerForm.controls.password2.dirty}">
                               <span class="input-group-text">
                                 <i class="fa fa-fw fa-lock"></i>
                               </span>

@@ -25,7 +25,7 @@
       </div>
 
       <div class="row justify-content-center my-3">
-        <div class="col-lg-6">
+        <div class="col-lg-7">
             <div class="card shadow-sm mb-4">
                 <div class="card-body">
       
@@ -37,7 +37,9 @@
                           <label>Email *</label>
 
                           <div class="input-group mb-3">
-                            <div class="input-group-prepend" [ngClass]="signinForm.controls.email.invalid ? 'ng-invalid': 'ng-valid'">
+                            <div class="input-group-prepend" 
+                              [ngClass]="{'ng-invalid': signinForm.controls.email.invalid && signinForm.controls.email.dirty,
+                                          'ng-valid': signinForm.controls.email.valid && signinForm.controls.email.dirty}">
                               <span class="input-group-text">
                                 <i class="fa fa-fw fa-envelope"></i>
                               </span>
@@ -55,7 +57,9 @@
                           <label>Password *</label>
 
                           <div class="input-group mb-3">
-                            <div class="input-group-prepend" [ngClass]="signinForm.controls.password.invalid ? 'ng-invalid': 'ng-valid'">
+                            <div class="input-group-prepend"
+                              [ngClass]="{'ng-invalid': signinForm.controls.password.invalid && signinForm.controls.password.dirty,
+                                          'ng-valid': signinForm.controls.password.valid && signinForm.controls.password.dirty}">
                               <span class="input-group-text">
                                 <i class="fa fa-fw fa-lock"></i>
                               </span>
@@ -90,7 +94,7 @@
                             <div class="col-md-6 text-right">
                               <div class="custom-control custom-switch mt-1">
                                 <input name="remember" type="checkbox" formControlName="remember" class="custom-control-input" id="rememberme">
-                                <label class="custom-control-label" for="rememberme">Remember your details for 30 days</label>
+                                <label class="custom-control-label" for="rememberme">Remember your details</label>
                               </div>
                             </div>
                         </div>
