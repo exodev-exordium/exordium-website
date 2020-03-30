@@ -39,10 +39,6 @@ export class RegisterComponent implements OnInit {
     this.initPlugins();
   }
 
-  ngAfterViewInit() {
-    $('select').selectpicker('render');
-  }
-
   initPlugins() {
     // Jarallax
     jarallaxElement();
