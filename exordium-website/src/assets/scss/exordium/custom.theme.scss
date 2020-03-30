@@ -42,18 +42,18 @@ textarea {
     transition: all 200ms ease-in-out;
 }
 
-input.ng-invalid, 
-input.ng-valid,
-textarea.ng-invalid, 
-textarea.ng-valid {
+input.ng-dirty.ng-invalid, 
+input.ng-dirty.ng-valid,
+textarea.ng-dirty.ng-invalid, 
+textarea.ng-dirty.ng-valid {
     padding-right: 2.375rem;
     background-repeat: no-repeat;
     background-position: center right calc(.375em + .1875rem);
     background-size: calc(.75em + .375rem) calc(.75em + .375rem);
 }
 .input-group-prepend.ng-invalid .input-group-text,
-input.ng-invalid,
-textarea.ng-invalid {
+input.ng-dirty.ng-invalid,
+textarea.ng-dirty.ng-invalid {
     border-color: #dc3545;
 
     &:focus {
@@ -63,14 +63,14 @@ textarea.ng-invalid {
 .input-group-prepend.ng-invalid .input-group-text {
     color: #dc3545;
 }
-input.ng-invalid,
-textarea.ng-invalid {
+input.ng-dirty.ng-invalid,
+textarea.ng-dirty.ng-invalid {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23dc3545' viewBox='-2 -2 7 7'%3e%3cpath stroke='%23dc3545' d='M0 0l3 3m0-3L0 3'/%3e%3ccircle r='.5'/%3e%3ccircle cx='3' r='.5'/%3e%3ccircle cy='3' r='.5'/%3e%3ccircle cx='3' cy='3' r='.5'/%3e%3c/svg%3E");
 }
 
 .input-group-prepend.ng-valid .input-group-text,
-input.ng-valid,
-textarea.ng-valid {
+input.ng-dirty.ng-valid,
+textarea.ng-dirty.ng-valid {
     border-color: #28a745;
 
     &:focus {
@@ -80,8 +80,8 @@ textarea.ng-valid {
 .input-group-prepend.ng-valid .input-group-text {
     color: #28a745;
 }
-input.ng-valid,
-textarea.ng-valid {
+input.ng-dirty.ng-valid,
+textarea.ng-dirty.ng-valid {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
 }
 
