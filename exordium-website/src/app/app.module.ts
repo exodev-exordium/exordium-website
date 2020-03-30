@@ -5,6 +5,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+// Angular-Select
+import { NgSelectModule } from '@ng-select/ng-select';
+
 // ReCaptcha
 import { RecaptchaModule, RecaptchaFormsModule, RECAPTCHA_SETTINGS, RecaptchaSettings } from 'ng-recaptcha';
 
@@ -195,6 +198,7 @@ const appRoutes : Routes = [
     RecaptchaFormsModule,
     FormsModule,
     ReactiveFormsModule,
+    NgSelectModule,
     HttpClientModule, 
     InlineSVGModule.forRoot(),
     RouterModule.forRoot(
