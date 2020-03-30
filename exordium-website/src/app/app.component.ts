@@ -4,7 +4,6 @@ import { Title } from "@angular/platform-browser";
 
 import { map, filter, scan } from 'rxjs/operators';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
