@@ -27,7 +27,7 @@ export class SigninComponent implements OnInit {
 
   ngOnInit() {
     this.signinForm = this.formBuilder.group({
-      email: [null, Validators.required],
+      email: [null, [Validators.required, Validators.email]],
       password: [null, Validators.required],
       remember: [null],
       recaptcha: [null, Validators.required]
