@@ -1,0 +1,28 @@
+<!-- Navigation -->
+<div class="navbar-container ">
+    <nav class="navbar navbar-expand-lg navbar-dark" data-overlay>
+        <div class="container">
+            <a class="navbar-brand fade-page" href="/">
+                <i class="far fa-wifi mr-1"></i>
+                Exordium
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fal fa-bars icon navbar-toggler-open"></i>
+                <i class="fal fa-times icon navbar-toggler-close"></i>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end">
+                <app-navbar-main class="py-2 py-lg-0"></app-navbar-main>
+                <a href="/!/download" class="btn btn-primary ml-lg-3">Download Now</a>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<!-- About MegaDropdown -->
+<div class="collapse aboutNav" id="aboutNavbar">
+    <div class="dropdown-tab about-dark text-light border-bottom">
+        <div class="container py-4" data-dropdown-content>
+          <app-navbar-about></app-navbar-about>
+        </div>
+    </div>
+</div>
