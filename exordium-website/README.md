@@ -20,7 +20,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Github Build
 
-Run `ng build -- --prod --aot --base-href /exordium-website/ --output-path ../docs/` to build the project into the main docs folder. 
+Run `ng build -- --prod --aot --output-path ../docs/` to build the project into the main docs folder. 
 
 ## Running unit tests
 
