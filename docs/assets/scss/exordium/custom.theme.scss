@@ -42,10 +42,10 @@ textarea {
     transition: all 200ms ease-in-out;
 }
 
-input.ng-dirty.ng-invalid, 
-input.ng-dirty.ng-valid,
-textarea.ng-dirty.ng-invalid, 
-textarea.ng-dirty.ng-valid {
+input.ng-invalid, 
+input.ng-valid,
+textarea.ng-invalid, 
+textarea.ng-valid {
     padding-right: 2.375rem;
     background-repeat: no-repeat;
     background-position: center right calc(.375em + .1875rem);
