@@ -1,3 +1,27 @@
+// Navbar/Header Styles
+nav.navbar {
+    -webkit-transition: background 200ms ease-in-out;
+    -moz-transition: background 200ms ease-in-out;
+    -o-transition: background 200ms ease-in-out;
+    transition: background 200ms ease-in-out;
+
+    &.navbar-overlay {
+        position: absolute;
+        z-index: 999;
+
+        &.scrolled {
+            z-index: 1030;
+        }
+
+        &.navbar-open,
+        &.scrolled.navbar-dark {
+            background: rgba($primary-3, 0.95);
+            backdrop-filter: saturate(180%) blur(20px);
+            border-bottom-color: transparent;
+        }
+    }
+}
+
 // About Section and Dropdown
 section.aboutNav {
     background: rgba($primary-3, 1);
