@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
-import {
-  jarallax,
-  jarallaxElement
-} from 'jarallax';
+import { jarallax, jarallaxElement } from 'jarallax';
 
 import * as jQuery from 'jquery';
 let $ = jQuery;
