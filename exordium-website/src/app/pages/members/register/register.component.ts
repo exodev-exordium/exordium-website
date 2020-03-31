@@ -34,9 +34,18 @@ export class RegisterComponent implements OnInit {
       password1: [null, Validators.required],
       password2: [null, Validators.required],
       recaptcha: [null, Validators.required]
-    });
+    }, { validator: this.checkPasswords });
 
     this.initPlugins();
+  }
+
+
+  // Dont forget to check password match (more then 6 characters as well, letters, and numbrs min.)
+  checkPasswords(group: FormGroup) {
+    let password1 = group.get('password1').value;
+    let password2 = group.get('password2').value;
+
+    return password1 === password2 ? null : { notSame: true }
   }
 
   initPlugins() {
