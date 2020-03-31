@@ -18,7 +18,9 @@ import { AuthInterceptor } from './service/authconfig.interceptor';
 
 // Components
 import { PrimaryHeaderComponent } from './components/header/primary/primary.component';
-import { AboutComponent } from './components/navbar/about/about.component';
+import { OverlayHeaderComponent } from './components/header/overlay/overlay.component';
+import { MainNavbarComponent } from './components/navbar/main/main.component';
+import { AboutNavbarComponent } from './components/navbar/about/about.component';
 import { PrimaryFooterComponent } from './components/footer/primary/primary.component';
 import { ScrollToTopComponent } from './components/window/scroll-to-top/scroll-to-top.component';
 
@@ -42,7 +44,9 @@ import { ArticleComponent } from './pages/blog/article/article.component';
     AppComponent,
 
     PrimaryHeaderComponent,
-    AboutComponent,
+    OverlayHeaderComponent, 
+    MainNavbarComponent,
+    AboutNavbarComponent,
     PrimaryFooterComponent,
     ScrollToTopComponent,
 
