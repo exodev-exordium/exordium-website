@@ -7,16 +7,16 @@ import {
 } from 'jarallax';
 
 import * as jQuery from 'jquery';
-import 'bootstrap-notify';
-
-
 let $ = jQuery;
+
+import 'bootstrap-notify';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
+
 export class ContactComponent implements OnInit {
   contactForm: FormGroup;
 
