@@ -1,12 +1,58 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-// unused routes: look at app.module.ts
-const routes: Routes = [];
+// Routing
+import { BlogModule } from './pages/blog/blog.module';
+import { CompanyModule } from './pages/company/company.module';
+import { MembersModule } from './pages/members/members.module';
+import { ErrorModule } from './pages/error/error.module';
+
+// Page Components
+import { WelcomeComponent } from './pages/welcome/welcome.component';
+import { PricingComponent } from './pages/pricing/pricing.component';
+
+const routes : Routes = [
+  {
+    path: '',
+    redirectTo: '/welcome',
+    pathMatch: 'full',
+    data: {
+      title: 'Exordium'
+    }
+  },
+  {
+    path: 'welcome',
+    component: WelcomeComponent,
+    data: {
+      title: 'Welcome'
+    }
+  },
+  {
+    path: 'pricing',
+    component: PricingComponent,
+    data: {
+      title: 'Pricing'
+    }
+  },
+  {
+    path: '**',
+    redirectTo: 'error/not-found'
+  }
+]
 
 @NgModule({
+  declarations: [],
   imports: [
-    RouterModule.forRoot(routes)
+    BlogModule,
+    CompanyModule,
+    MembersModule,
+    ErrorModule,
+    RouterModule.forRoot(
+      routes,
+      {
+        enableTracing: true
+      }
+    )
   ],
   exports: [RouterModule]
 })
