@@ -6,6 +6,7 @@ import { BlogModule } from './pages/blog/blog.module';
 import { CompanyModule } from './pages/company/company.module';
 import { MembersModule } from './pages/members/members.module';
 import { ErrorModule } from './pages/error/error.module';
+import { DashboardModule } from './pages/dashboard/dashboard.module';
 
 // Page Components
 import { WelcomeComponent } from './pages/welcome/welcome.component';
@@ -47,6 +48,7 @@ const routes : Routes = [
     CompanyModule,
     MembersModule,
     ErrorModule,
+    DashboardModule,
     RouterModule.forRoot(
       routes,
       {
