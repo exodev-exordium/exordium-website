@@ -38,6 +38,9 @@ import { SigninComponent } from './pages/members/signin/signin.component';
 import { RegisterComponent } from './pages/members/register/register.component';
 import { BlogComponent } from './pages/blog/blog/blog.component';
 import { ArticleComponent } from './pages/blog/article/article.component';
+import { DashboardComponent } from './pages/dashboard/dashboard/dashboard.component';
+import { SettingsComponent } from './pages/dashboard/settings/settings.component';
+import { ProfileComponent } from './pages/dashboard/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +69,11 @@ import { ArticleComponent } from './pages/blog/article/article.component';
     RegisterComponent,
 
     BlogComponent, 
-    ArticleComponent,
+    ArticleComponent, 
+    
+    DashboardComponent, 
+    SettingsComponent, 
+    ProfileComponent,
     
   ],
   imports: [
