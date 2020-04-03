@@ -3,17 +3,12 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/service/auth.service';
 
-import {
-  jarallax,
-  jarallaxElement
-} from 'jarallax';
+import { jarallax, jarallaxElement } from 'jarallax';
 
 import * as jQuery from 'jquery';
-import 'bootstrap-notify';
-
-import { RecaptchaComponent } from 'ng-recaptcha';
-
 let $ = jQuery;
+
+import 'bootstrap-notify';
 
 @Component({
   selector: 'app-signin',
