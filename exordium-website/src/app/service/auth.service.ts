@@ -88,7 +88,7 @@ export class AuthService {
     }
 
     // Are we logged in?
-    get isLoggedIn(): boolean {
+    get isSignedIn(): boolean {
         let authToken = localStorage.getItem('access_token');
         return (authToken !== null) ? true: false;
     }
