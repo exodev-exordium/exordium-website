@@ -17,10 +17,13 @@ import { AppComponent } from './app.component';
 import { AuthInterceptor } from './service/authconfig.interceptor';
 
 // Components
-import { PrimaryHeaderComponent } from './components/header/primary/primary.component';
-import { OverlayHeaderComponent } from './components/header/overlay/overlay.component';
-import { MainNavbarComponent } from './components/navbar/main/main.component';
-import { AboutNavbarComponent } from './components/navbar/about/about.component';
+import { DarkHeaderComponent } from './components/header/dark-header/dark-header.component';
+import { LightHeaderComponent } from './components/header/light-header/light-header.component';
+import { NavMainComponent } from './components/navbar/nav-main/nav-main.component';
+import { NavAboutComponent } from './components/navbar/nav-about/nav-about.component';
+import { NavDashboardComponent } from './components/navbar/nav-dashboard/nav-dashboard.component';
+import { NavButtonsComponent } from './components/navbar/nav-buttons/nav-buttons.component';
+import { TransparentHeaderComponent } from './components/header/transparent-header/transparent-header.component';
 import { PrimaryFooterComponent } from './components/footer/primary/primary.component';
 import { ScrollToTopComponent } from './components/window/scroll-to-top/scroll-to-top.component';
 
@@ -46,10 +49,13 @@ import { ProfileComponent } from './pages/dashboard/profile/profile.component';
   declarations: [
     AppComponent,
 
-    PrimaryHeaderComponent,
-    OverlayHeaderComponent, 
-    MainNavbarComponent,
-    AboutNavbarComponent,
+    DarkHeaderComponent, 
+    LightHeaderComponent, 
+    TransparentHeaderComponent,
+    NavMainComponent, 
+    NavButtonsComponent, 
+    NavAboutComponent, 
+    NavDashboardComponent,
     PrimaryFooterComponent,
     ScrollToTopComponent,
 
@@ -73,8 +79,8 @@ import { ProfileComponent } from './pages/dashboard/profile/profile.component';
     
     DashboardComponent, 
     SettingsComponent, 
-    ProfileComponent,
-    
+    ProfileComponent, 
+
   ],
   imports: [
     BrowserModule,
