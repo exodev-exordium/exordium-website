@@ -28,6 +28,10 @@ export class DarkHeaderComponent implements OnInit {
     // Header Options
     this.addFraming();
     this.stickyTop();
+
+    $('.navbar-toggler').click(function() {
+      $('nav.navbar').toggleClass("navbar-open");
+    });
   }
 
   checkSignedIn () {
