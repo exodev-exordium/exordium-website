@@ -15,7 +15,7 @@ nav.navbar {
 
         &.navbar-open,
         &.scrolled.navbar-dark {
-            background: rgba($primary-3, 0.95);
+            background: rgba($primary-3, 0.90);
             backdrop-filter: saturate(180%) blur(20px);
         }
     }
@@ -34,7 +34,7 @@ div.aboutNav {
     z-index: 999999;
 
     .about-dark {
-        background: rgba($primary-3, 0.95);
+        background: rgba($primary-3, 0.90);
         backdrop-filter: saturate(180%) blur(20px);
         border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
     }
@@ -51,6 +51,61 @@ div.aboutNav {
         &:active,
         &.active {
             color: rgba(255, 255, 255, .75);
+        }
+    }
+}
+
+// Dashboard Menu
+.dashboard-nav-container {
+    position: relative;
+    background: $primary-3;
+
+    .nav-dashboard-wrapper {
+        position: absolute;
+        transition: background 200ms ease-in-out;
+        width: 100%;
+        z-index: 998;
+
+        &.nav-dashboard-dark.scrolled,
+        &.nav-dashboard-light.scrolled {
+            backdrop-filter: saturate(180%) blur(20px);
+            box-shadow: 0 0.625rem 1.5rem rgba(0, 0, 0, 0.08);
+        }
+
+        &.nav-dashboard-dark {
+
+            &.scrolled {
+                background: rgba($primary-3, 0.90);
+                border-bottom: 1px solid #222324;
+            }
+
+            .nav li {
+                a {
+                    color: rgba(255, 255, 255, 0.5);
+
+                    &:hover {
+                        color: rgba(255, 255, 255, 0.75);
+                    }
+                }
+                .active {
+                    color: rgba(255, 255, 255, 0.95);
+
+                    &:hover {
+                        color: rgba(255, 255, 255, 1);
+                    }
+                }
+                .disabled {
+                    opacity: 0.5;
+                }
+            }
+        }
+        &.nav-dashboard-light {
+
+            &.scrolled {
+                background: rgba(255, 255, 255, 0.9);
+                border-bottom: 1px solid #dee2e6;
+            }
+
         }
     }
 }
