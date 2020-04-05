@@ -1,4 +1,4 @@
 ng build -- --prod --aot --output-path ../docs/; 
 cd ../docs/; 
-echo beta.exordium.dev > CNAME;
+echo exordium.dev > CNAME;
 cd ../exordium-website/;
