@@ -92,7 +92,7 @@ export class SigninComponent implements OnInit {
         this.authService.getUserProfile(res._id).subscribe(
             (res) => {
                 this.authService.currentUser = res;
-                this.router.navigate([`dashboard/profile/${res.msg._id}`]);
+                this.router.navigate([`/dashboard`]);
             }
         )
 
