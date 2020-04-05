@@ -39,8 +39,8 @@
 
                           <div class="input-group mb-3">
                             <div class="input-group-prepend"
-                              [ngClass]="{'ng-invalid': registerForm.controls.username.invalid && registerForm.controls.username.dirty,
-                                          'ng-valid': registerForm.controls.username.valid && registerForm.controls.username.dirty}">
+                              [ngClass]="{'ng-invalid': f.username.invalid && f.username.dirty,
+                                          'ng-valid': f.username.valid && f.username.dirty}">
                               <span class="input-group-text">
                                 <i class="fa fa-fw fa-user"></i>
                               </span>
@@ -60,8 +60,8 @@
 
                           <div class="input-group mb-3">
                             <div class="input-group-prepend"
-                              [ngClass]="{'ng-invalid': registerForm.controls.email.invalid && registerForm.controls.email.dirty,
-                                          'ng-valid': registerForm.controls.email.valid && registerForm.controls.email.dirty}">
+                              [ngClass]="{'ng-invalid': f.email.invalid && f.email.dirty,
+                                          'ng-valid': f.email.valid && f.email.dirty}">
                               <span class="input-group-text">
                                 <i class="fa fa-fw fa-envelope"></i>
                               </span>
@@ -81,8 +81,8 @@
 
                           <div class="input-group mb-3">
                             <div class="input-group-prepend"
-                              [ngClass]="{'ng-invalid': registerForm.controls.realname.invalid && registerForm.controls.realname.dirty,
-                                          'ng-valid': registerForm.controls.realname.valid && registerForm.controls.realname.dirty}">
+                              [ngClass]="{'ng-invalid': f.realname.invalid && f.realname.dirty,
+                                          'ng-valid': f.realname.valid && f.realname.dirty}">
                               <span class="input-group-text">
                                 <i class="fa fa-fw fa-person-sign"></i>
                               </span>
@@ -102,13 +102,14 @@
 
                           <div class="input-group mb-3">
                             <div class="input-group-prepend"
-                              [ngClass]="{'ng-invalid': registerForm.controls.country.invalid && registerForm.controls.country.dirty,
-                                          'ng-valid': registerForm.controls.country.valid && registerForm.controls.country.dirty}">
+                              [ngClass]="{'ng-invalid': f.country.invalid && f.country.dirty,
+                                          'ng-valid': f.country.valid && f.country.dirty}">
                               <span class="input-group-text">
                                 <i class="fa fa-fw fa-globe"></i>
                               </span>
                             </div>
                             <ng-select
+                              formControlName="country"
                               class="form-control ng-select"
                               placeholder="Canada"
                               [items]="countries"
@@ -128,13 +129,13 @@
 
                           <div class="input-group mb-3">
                             <div class="input-group-prepend"
-                              [ngClass]="{'ng-invalid': registerForm.controls.password1.invalid && registerForm.controls.password1.dirty,
-                                          'ng-valid': registerForm.controls.password1.valid && registerForm.controls.password1.dirty}">
+                              [ngClass]="{'ng-invalid': f.password.invalid && f.password.dirty,
+                                          'ng-valid': f.password.valid && f.password.dirty}">
                               <span class="input-group-text">
                                 <i class="fa fa-fw fa-key"></i>
                               </span>
                             </div>
-                            <input name="password1" type="text" formControlName="password1" placeholder="*************" class="form-control" required>
+                            <input name="password" type="password" formControlName="password" placeholder="*************" class="form-control" required>
                           </div>
                           <div class="invalid-feedback">
                             Please type your desired password.
@@ -148,13 +149,13 @@
 
                           <div class="input-group mb-3">
                             <div class="input-group-prepend"
-                              [ngClass]="{'ng-invalid': registerForm.controls.password2.invalid && registerForm.controls.password2.dirty,
-                                          'ng-valid': registerForm.controls.password2.valid && registerForm.controls.password2.dirty}">
+                              [ngClass]="{'ng-invalid': f.confirmPassword.invalid && f.confirmPassword.dirty,
+                                          'ng-valid': f.confirmPassword.valid && f.confirmPassword.dirty}">
                               <span class="input-group-text">
                                 <i class="fa fa-fw fa-lock"></i>
                               </span>
                             </div>
-                            <input name="password2" type="text" formControlName="password2" placeholder="*************" class="form-control" required>
+                            <input name="confirmPassword" type="password" formControlName="confirmPassword" placeholder="*************" class="form-control" required>
                           </div>
                           <div class="invalid-feedback">
                             Verify that your passwords match.
@@ -166,8 +167,7 @@
                       <div class="col-12">
                         <div class="form-group">
                           <label>Prove that you're human *</label>
-                          <re-captcha 
-                            (resolved)="recaptchaResolved($event)"
+                          <re-captcha
                             formControlName="recaptcha"
                           ></re-captcha>
                         </div>

@@ -22,17 +22,21 @@ export class SigninComponent implements OnInit {
     private formBuilder: FormBuilder,
     public authService: AuthService,
     public router: Router
-  ) { }
-
-  ngOnInit() {
+  ) { 
     this.signinForm = this.formBuilder.group({
       email: [null, [Validators.required, Validators.email]],
-      password: [null, Validators.required],
+      password: [null, [Validators.required, Validators.minLength(6)]],
       remember: [null],
       recaptcha: [null, Validators.required]
     });
+  }
 
+  ngOnInit() {
     this.jarallaxInit();
+  }
+
+  get f() {
+    return this.signinForm.controls;
   }
 
   jarallaxInit() {
@@ -40,10 +44,6 @@ export class SigninComponent implements OnInit {
     jarallax(document.querySelectorAll('.jarallax'), {
       speed: 0.6
     });
-  }
-
-  get f() {
-    return this.signinForm.controls;
   }
 
   onSubmit() {
@@ -54,7 +54,7 @@ export class SigninComponent implements OnInit {
 
     var notify = $.notify({
       icon: 'fa fa-fw fa-info-circle',
-      message: '<strong>Sending your contact request!</strong> This could take a moment...'
+      message: '<strong>Trying to sign you in!</strong> This could take a moment...'
     },{
       type: 'primary',
       placement: {
@@ -87,11 +87,28 @@ export class SigninComponent implements OnInit {
       });
     } else {
 
-      notify.update({
-        'type': 'danger',
-        'icon': 'fa fa-fw fa-times',
-        'message': `<strong>Error!</strong> Signing in is currently disabled.`
-      });
+      this.authService.signin(this.signinForm.value).subscribe((res) => {
+        localStorage.setItem('access_token', res.token)
+        this.authService.getUserProfile(res._id).subscribe(
+            (res) => {
+                this.authService.currentUser = res;
+                this.router.navigate([`dashboard/profile/${res.msg._id}`]);
+            }
+        )
+
+        notify.update({
+          'type': 'success',
+          'icon': 'fa fa-fw fa-check',
+          'message': `<strong>Success!</strong> You've successfully signed into Exordium.`
+        });
+      },
+      (err) => {
+        notify.update({
+          'type': 'danger',
+          'icon': 'fa fa-fw fa-times',
+          'message': `<strong>Error!</strong> Please check that your email and password are correct.`
+        });
+      })
     }
 
     setTimeout(function () {
@@ -100,10 +117,5 @@ export class SigninComponent implements OnInit {
     }, 2000);
 
   }
-
-  recaptchaResolved (event: string) {
-    console.log(`Recaptcha Event: ${event}`);
-  }
-  
 
 }

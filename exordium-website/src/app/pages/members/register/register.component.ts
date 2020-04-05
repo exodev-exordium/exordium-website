@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/service/auth.service';
 
 import { Countries } from 'src/app/service/country.component';
+import { MustMatch } from 'src/app/helpers/mustmatch.validator';
 
 import { jarallax, jarallaxElement } from 'jarallax';
 
@@ -27,29 +28,24 @@ export class RegisterComponent implements OnInit {
     public router: Router
   ) { 
     this.countries = new Countries().countries;
-  }
 
-  ngOnInit() {
     this.registerForm = this.formBuilder.group({
       username: [null, Validators.required],
       email: [null, [Validators.required, Validators.email]],
       realname: [null],
-      country: [null, Validators.required],
-      password1: [null, Validators.required],
-      password2: [null, Validators.required],
+      country: [null],
+      password: [null, [Validators.required, Validators.minLength(6)]],
+      confirmPassword: [null, Validators.required],
       recaptcha: [null, Validators.required]
-    }, { validator: this.checkPasswords });
+    }, { validator: MustMatch('password', 'confirmPassword') })
+  }
 
+  ngOnInit() {
     this.initPlugins();
   }
 
-
-  // Dont forget to check password match (more then 6 characters as well, letters, and numbrs min.)
-  checkPasswords(group: FormGroup) {
-    let password1 = group.get('password1').value;
-    let password2 = group.get('password2').value;
-
-    return password1 === password2 ? null : { notSame: true }
+  get f() {
+    return this.registerForm.controls;
   }
 
   initPlugins() {
@@ -68,7 +64,7 @@ export class RegisterComponent implements OnInit {
 
     var notify = $.notify({
       icon: 'fa fa-fw fa-info-circle',
-      message: '<strong>Sending your contact request!</strong> This could take a moment...'
+      message: '<strong>Sending your registration request!</strong> This could take a moment...'
     },{
       type: 'primary',
       placement: {
@@ -101,11 +97,28 @@ export class RegisterComponent implements OnInit {
       });
     } else {
 
-      notify.update({
-        'type': 'danger',
-        'icon': 'fa fa-fw fa-times',
-        'message': `<strong>Error!</strong> Signing in is currently disabled.`
-      });
+      this.authService.register(this.registerForm.value).subscribe((res) => {
+        console.log(this.registerForm.value);
+        console.log(res);
+
+        if (res.result) {
+          this.registerForm.reset()
+          this.router.navigate(['members/signin']);
+
+          notify.update({
+            'type': 'success',
+            'icon': 'fa fa-fw fa-check',
+            'message': `<strong>Success!</strong> Your Exordium account has been successfully created!.`
+          });
+        }
+      },
+      (err) => {
+        notify.update({
+          'type': 'danger',
+          'icon': 'fa fa-fw fa-times',
+          'message': `<strong>Error!</strong> Please check that the fields you entered are all correct.`
+        });
+      })
     }
 
     setTimeout(function () {
@@ -113,10 +126,6 @@ export class RegisterComponent implements OnInit {
       sourceButton.removeClass("m-progress");
     }, 2000);
 
-  }
-
-  recaptchaResolved (event: string) {
-    console.log(`Recaptcha Event: ${event}`);
   }
 
 }

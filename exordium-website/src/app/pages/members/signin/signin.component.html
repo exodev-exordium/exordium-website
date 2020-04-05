@@ -38,8 +38,8 @@
 
                           <div class="input-group mb-3">
                             <div class="input-group-prepend" 
-                              [ngClass]="{'ng-invalid': signinForm.controls.email.invalid && signinForm.controls.email.dirty,
-                                          'ng-valid': signinForm.controls.email.valid && signinForm.controls.email.dirty}">
+                              [ngClass]="{'ng-invalid': f.email.invalid && f.email.dirty,
+                                          'ng-valid': f.email.valid && f.email.dirty}">
                               <span class="input-group-text">
                                 <i class="fa fa-fw fa-envelope"></i>
                               </span>
@@ -58,8 +58,8 @@
 
                           <div class="input-group mb-3">
                             <div class="input-group-prepend"
-                              [ngClass]="{'ng-invalid': signinForm.controls.password.invalid && signinForm.controls.password.dirty,
-                                          'ng-valid': signinForm.controls.password.valid && signinForm.controls.password.dirty}">
+                              [ngClass]="{'ng-invalid': f.password.invalid && f.password.dirty,
+                                          'ng-valid': f.password.valid && f.password.dirty}">
                               <span class="input-group-text">
                                 <i class="fa fa-fw fa-lock"></i>
                               </span>
@@ -75,8 +75,7 @@
                       <div class="col-12">
                         <div class="form-group">
                           <label>Prove that you're human *</label>
-                          <re-captcha 
-                            (resolved)="recaptchaResolved($event)"
+                          <re-captcha
                             formControlName="recaptcha"
                           ></re-captcha>
                         </div>
