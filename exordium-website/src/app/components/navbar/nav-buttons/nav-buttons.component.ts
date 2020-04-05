@@ -21,4 +21,9 @@ export class NavButtonsComponent implements OnInit {
     }
   }
 
+  signout() {
+    console.log('Signed out.');
+    this.authService.signout();
+  }
+
 }

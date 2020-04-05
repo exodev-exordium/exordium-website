@@ -24,8 +24,8 @@
 </div>
 
 <!-- Dashbord Navigation -->
-<div class="dashboard-nav-container bg-white" *ngIf="signedIn" style="">
+<div class="dashboard-nav-container bg-white">
     <div class="nav-dashboard-wrapper nav-dashboard-light">
-        <app-nav-dashboard></app-nav-dashboard>
+        <app-nav-dashboard *ngIf="signedIn"></app-nav-dashboard>
     </div>
 </div>

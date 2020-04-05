@@ -26,7 +26,7 @@ export class TransparentHeaderComponent implements OnInit {
     this.checkSignedIn();
 
     // Header Options
-    this.invertFraming();
+    this.addFraming();
     this.stickyTop();
 
     $('.navbar-toggler').click(function() {
@@ -42,7 +42,7 @@ export class TransparentHeaderComponent implements OnInit {
     }
   }
 
-  invertFraming () {
+  addFraming () {
     // Main Navbar Height
     let mainNavHeight = $('nav.navbar').outerHeight();
 
@@ -85,7 +85,7 @@ export class TransparentHeaderComponent implements OnInit {
 
   @HostListener("window:resize", [])
   onResize () {
-    this.invertFraming();
+    this.addFraming();
     this.stickyTop();
   }
 
