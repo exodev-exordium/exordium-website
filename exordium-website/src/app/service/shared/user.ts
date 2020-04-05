@@ -3,5 +3,7 @@ export class User {
     username: String;
     email: String;
     realname: String;
+    country: String;
     password: String;
+    recaptcha: String;
 }
