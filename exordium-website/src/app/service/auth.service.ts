@@ -41,12 +41,22 @@ export class AuthService {
     // Register Account
     register (user: User): Observable<any> {
         let api = `${this.endpoint}/auth/register`;
+        
         return this.http.post (api, user).pipe(
             catchError(this.handleError)
         )
     }
 
     // Sign in
+    signin (user: User): Observable<any> {
+        let api = `${this.endpoint}/auth/signin`; 
+
+        return this.http.post (api, user).pipe(
+            catchError(this.handleError)
+        )
+    }
+
+    /*
     signin (user: User) {
         return this.http.post<any>(`${this.endpoint}/auth/signin`, user).subscribe(
             (res: any) => {
@@ -60,6 +70,7 @@ export class AuthService {
             }
         )
     }
+    */
 
     // Sign out
     signout () {
@@ -71,7 +82,7 @@ export class AuthService {
 
     // User Profile
     getUserProfile (id): Observable<any> {
-        let api = `${this.endpoint}/user/${id}`;
+        let api = `${this.endpoint}/auth/user/${id}`;
         return this.http.get(api, { headers: this.headers }).pipe(
             map(
                 (res: Response) => {
