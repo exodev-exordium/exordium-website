@@ -56,22 +56,6 @@ export class AuthService {
         )
     }
 
-    /*
-    signin (user: User) {
-        return this.http.post<any>(`${this.endpoint}/auth/signin`, user).subscribe(
-            (res: any) => {
-                localStorage.setItem('access_token', res.token)
-                this.getUserProfile(res._id).subscribe(
-                    (res) => {
-                        this.currentUser = res;
-                        //this.router.navigate([`dashboard/profile/${res.msg._id}`]);
-                    }
-                )
-            }
-        )
-    }
-    */
-
     // Sign out
     signout () {
         let removeToken = localStorage.removeItem('access_token');
