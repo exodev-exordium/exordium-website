@@ -17,7 +17,7 @@ const routes: Routes = [
     data: {
       title: 'Dashboard'
     },
-    //canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'dashboard/profile',
@@ -25,7 +25,7 @@ const routes: Routes = [
     data: {
       title: 'Profile'
     },
-    //canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'dashboard/settings',
@@ -33,7 +33,7 @@ const routes: Routes = [
     data: {
       title: 'Settings'
     },
-    //canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   }
 ];
 
