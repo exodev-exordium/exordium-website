@@ -16,8 +16,7 @@ export class AuthService {
 
     private endpoint = new API().endpoint;
     private headers = new API().headers;
-
-    currentUser = {};
+    public getCurrentUser = {};
 
     constructor (
         private http: HttpClient,
@@ -80,6 +79,18 @@ export class AuthService {
     // Get User Token
     getToken () {
         return localStorage.getItem('access_token');
+    }
+
+    currentUser (): Observable<any> {
+        let api = `${this.endpoint}/auth/user/me`;
+        return this.http.get(api, { headers: this.headers }).pipe(
+            map(
+                (res: Response) => {
+                    return res || {};
+                }
+            ),
+            catchError(this.handleError)
+        )
     }
 
     // Are we logged in?
