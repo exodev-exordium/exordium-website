@@ -1,8 +1,9 @@
 
 // import plugins
-@import "plugins/fontawesome/fontawesome";
 @import "plugins/pace/pace";
+@import "plugins/fontawesome/fontawesome";
 @import "plugins/ng-select/ng-select";
+//@import "plugins/flag-icon/flag-icon.scss";
 
 // custom exordium overwrites
 @import "exordium/custom.progress";
