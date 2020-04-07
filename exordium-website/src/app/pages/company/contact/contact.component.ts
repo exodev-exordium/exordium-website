@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { jarallax, jarallaxElement } from 'jarallax';
+import { AuthService } from 'src/app/service/auth.service';
 
 import * as jQuery from 'jquery';
 let $ = jQuery;
@@ -17,6 +18,7 @@ export class ContactComponent implements OnInit {
   contactForm: FormGroup;
 
   constructor(
+    public authService: AuthService,
     private formBuilder: FormBuilder
   ) { }
 
