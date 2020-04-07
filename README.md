@@ -20,19 +20,24 @@ When the `exordium-website` finally goes live it will be viewable from [our webs
 
 The website currently has the following pages and features, more will be added with time and as we find that further features are neccessary;
 
-- [ ] Welcome page (showcases our mobile and desktop apps)
-- [ ] About/(Blog) dropdown and pages
-- [ ] Contact (displays contact information :envelope: support@exordium.dev)
-- [ ] Support
-    - [ ] Documentation
-    - [ ] Customer Forums
+- [x] Welcome page (showcases our mobile and desktop apps)
+- [x] About Us
+    - [ ] General
+    - [ ] Resources
+    - [ ] Blog
+    - [ ] Company
+- [ ] Pricing
+- [x] Contact
+- [ ] Download
 - [ ] Members
-    - [ ] Sign in
-    - [ ] Register
+    - [x] Sign in
+    - [x] Register
     - [ ] Forgotten Password
     - [ ] Verify Email
     - [ ] Locked (requires password re-entry)
-- [ ] !/ ... (when members are logged in)
+- [ ] Dashboard
+    - [ ] Profile
+    - [ ] Settings
 
 ## Issues & Suggestions
 
