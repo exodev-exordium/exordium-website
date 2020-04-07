@@ -46,9 +46,6 @@ export class TransparentHeaderComponent implements OnInit {
     // Main Navbar Height
     let mainNavHeight = $('nav.navbar').outerHeight();
 
-    // Dashboard Navbar Height
-    let dashboardNavHeight = $('.nav-dashboard-wrapper').outerHeight();
-
     // Main Nav Framing
     $('nav.navbar').parent().css({
       "min-height": `${mainNavHeight}px`,
@@ -61,11 +58,11 @@ export class TransparentHeaderComponent implements OnInit {
     });
 
     // Dashboard Menu Framing
-    $('.nav-dashboard-wrapper').parent().css({
-      "top": `${mainNavHeight}px`,
-      "min-height": `${dashboardNavHeight}px`,
-      "margin-bottom": `-${dashboardNavHeight}px`
-    });
+    if (this.authService.isSignedIn === true) {
+      $('.nav-dashboard-wrapper').parent().css({
+        "top": `${mainNavHeight}px`,
+      });
+    }
   }
 
   stickyTop () {
@@ -74,11 +71,6 @@ export class TransparentHeaderComponent implements OnInit {
     // Main Nav
     $('nav.navbar').css({
       "top": 0,
-      "max-width": `${windowWidth}px`
-    });
-    
-    // Dashboard Nav
-    $('.nav-dashboard-wrapper').css({
       "max-width": `${windowWidth}px`
     });
   }

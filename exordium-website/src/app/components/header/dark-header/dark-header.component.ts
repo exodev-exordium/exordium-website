@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, HostListener, Host } from '@angular/core';
+import { Component, OnInit, Inject, HostListener } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { AuthService } from 'src/app/service/auth.service';
 
@@ -46,9 +46,6 @@ export class DarkHeaderComponent implements OnInit {
     // Main Navbar Height
     let mainNavHeight = $('nav.navbar').outerHeight();
 
-    // Dashboard Navbar Height
-    let dashboardNavHeight = $('.nav-dashboard-wrapper').outerHeight();
-
     // Main Nav Framing
     $('nav.navbar').parent().css({
       "min-height": `${mainNavHeight}px`
@@ -59,10 +56,6 @@ export class DarkHeaderComponent implements OnInit {
       "top": `${mainNavHeight}px`
     });
 
-    // Dashboard Menu Framing
-    $('.nav-dashboard-wrapper').parent().css({
-      "min-height": `${dashboardNavHeight}px`
-    });
   }
 
   stickyTop () {
@@ -74,10 +67,6 @@ export class DarkHeaderComponent implements OnInit {
       "max-width": `${windowWidth}px`
     });
     
-    // Dashboard Nav
-    $('.nav-dashboard-wrapper').css({
-      "max-width": `${windowWidth}px`
-    });
   }
 
   @HostListener("window:resize", [])
