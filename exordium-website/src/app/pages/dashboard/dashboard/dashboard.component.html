@@ -6,15 +6,15 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-xl-7 col-lg-8 col-md-9">
-          <h1 class="display-3">
-            Welcome, {{currentUser.username}}
+          <h1 class="display-4">
+            Welcome, <span class="text-capitalize">{{currentUser.username}}</span>
           </h1>
           <p class="lead">Exordium is still in development, you might find glitches and bugs. Let us know so we can fix them!</p>
         </div>
       </div>
     </div>
     <div class="divider">
-      <!-- <div [inlineSVG]="'assets/img/dividers/divider-3.svg'"></div> -->
+      <div [inlineSVG]="'assets/img/dividers/divider-2.svg'" [setSVGAttributes]="{ class: 'bg-primary-alt' }"></div>
     </div>
   </section>
 
