@@ -54,7 +54,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label>Your Name *</label>
-                    <input name="contact-name" type="text" formControlName="name" placeholder="Ryan Reynolds" class="form-control" required>
+                    <input name="contact-name" type="text" formControlName="realname" placeholder="Ryan Reynolds" class="form-control" required>
                     <div class="invalid-feedback">
                       Please type your name.
                     </div>
@@ -72,7 +72,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label>Company Name</label>
-                    <input name="contact-company" type="text" formControlName="companyName" placeholder="Deadpool Inc." class="form-control">
+                    <input name="contact-company" type="text" formControlName="company" placeholder="Deadpool Inc." class="form-control">
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -94,7 +94,6 @@
                   <div class="form-group">
                     <label>Prove that you're human *</label>
                     <re-captcha 
-                      (resolved)="recaptchaResolved($event)"
                       formControlName="recaptcha"
                     ></re-captcha>
                   </div>

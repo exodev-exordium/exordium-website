@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { jarallax, jarallaxElement } from 'jarallax';
 import { AuthService } from 'src/app/service/auth.service';
+import { ContactService } from 'src/app/service/contact.service';
 
 import * as jQuery from 'jquery';
 let $ = jQuery;
@@ -19,15 +20,16 @@ export class ContactComponent implements OnInit {
 
   constructor(
     public authService: AuthService,
+    private contactService: ContactService,
     private formBuilder: FormBuilder
   ) { }
 
   ngOnInit() {
     this.contactForm = this.formBuilder.group({
-      name: [null, Validators.required],
+      realname: [null, Validators.required],
       email: [null, [Validators.required, Validators.email]],
-      companyName: [null],
-      phone: [null, Validators.pattern("[0-9 ]{11}")],
+      company: [null],
+      phone: [null],
       message: [null, Validators.required],
       recaptcha: [null, Validators.required]
     });
@@ -87,11 +89,33 @@ export class ContactComponent implements OnInit {
       });
     } else {
 
-      notify.update({
-        'type': 'danger',
-        'icon': 'fa fa-fw fa-times',
-        'message': `<strong>Error!</strong> Sending emails is currently disabled as this feature hasn't been completed yet.`
-      });
+      this.contactService.sendContact(this.contactForm.value).subscribe((res) => {
+        console.log(res);
+
+        if (res.result) {
+          this.contactForm.reset()
+
+          notify.update({
+            'type': 'success',
+            'icon': 'fa fa-fw fa-check',
+            'message': `<strong>Success!</strong> Your email request has been sent to our customer support team!`
+          });
+        } else if (res[0].msg) {
+          notify.update({
+            'type': 'danger',
+            'icon': 'fa fa-fw fa-times',
+            'message': `<strong>Error!</strong> ${res[0].msg}`
+          });
+        }
+      },
+      (err) => {
+        notify.update({
+          'type': 'danger',
+          'icon': 'fa fa-fw fa-times',
+          'message': `<strong>Error!</strong> Plese check that the fields you entered are all correct.`
+        });
+      })
+
     }
 
     setTimeout(function () {
@@ -99,11 +123,6 @@ export class ContactComponent implements OnInit {
       sourceButton.removeClass("m-progress");
     }, 2000);
 
-  }
-
-  // for testing
-  recaptchaResolved (event: string) {
-    console.log(`Recaptcha Event: ${event}`);
   }
 
 }
