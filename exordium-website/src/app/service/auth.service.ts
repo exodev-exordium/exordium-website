@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Observable, of, throwError } from 'rxjs';
-import { map, catchError, tap } from 'rxjs/operators';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
 // Variables
@@ -16,7 +16,6 @@ export class AuthService {
 
     private endpoint = new API().endpoint;
     private headers = new API().headers;
-    public getCurrentUser = {};
 
     constructor (
         private http: HttpClient,
@@ -63,6 +62,19 @@ export class AuthService {
         }
     }
 
+    // User Data
+    getUserData (): Observable<any> {
+        let api = `${this.endpoint}/auth/user/me`;
+        return this.http.get(api, { headers: this.headers }).pipe(
+            map(
+                (res: Response) => {
+                    return res || {};
+                }
+            ),
+            catchError(this.handleError)
+        )
+    }
+
     // User Profile
     getUserProfile (id): Observable<any> {
         let api = `${this.endpoint}/auth/user/${id}`;
@@ -79,18 +91,6 @@ export class AuthService {
     // Get User Token
     getToken () {
         return localStorage.getItem('access_token');
-    }
-
-    currentUser (): Observable<any> {
-        let api = `${this.endpoint}/auth/user/me`;
-        return this.http.get(api, { headers: this.headers }).pipe(
-            map(
-                (res: Response) => {
-                    return res || {};
-                }
-            ),
-            catchError(this.handleError)
-        )
     }
 
     // Are we logged in?
