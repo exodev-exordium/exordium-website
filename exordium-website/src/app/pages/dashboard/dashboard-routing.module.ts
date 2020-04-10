@@ -5,10 +5,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from 'src/app/service/auth.guard';
 
 // Components
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { ProfileComponent } from './profile/profile.component';
-import { SettingsComponent } from './settings/settings.component';
+import { DashboardComponent } from './clients/dashboard/dashboard.component';
+import { ProfileComponent } from './clients/profile/profile.component';
+import { SettingsComponent } from './clients/settings/settings.component';
 
+import { ModContactComponent } from './moderation/mod-contact/mod-contact.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,14 @@ const routes: Routes = [
     component: SettingsComponent,
     data: {
       title: 'Settings'
+    },
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'dashboard/moderation/contact',
+    component: ModContactComponent,
+    data: {
+      title: 'Moderation Contact'
     },
     canActivate: [AuthGuard]
   }
