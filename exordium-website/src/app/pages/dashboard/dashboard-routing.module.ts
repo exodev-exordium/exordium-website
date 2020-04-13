@@ -4,12 +4,14 @@ import { Routes, RouterModule } from '@angular/router';
 // Auth Guard
 import { AuthGuard } from 'src/app/service/auth.guard';
 
-// Components
+// Dashboard 
 import { DashboardComponent } from './clients/dashboard/dashboard.component';
 import { ProfileComponent } from './clients/profile/profile.component';
 import { SettingsComponent } from './clients/settings/settings.component';
 
+// Moderation
 import { ModContactComponent } from './moderation/mod-contact/mod-contact.component';
+import { ModUsersComponent } from './moderation/mod-users/mod-users.component';
 
 const routes: Routes = [
   {
@@ -37,10 +39,18 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'dashboard/moderation/contact',
+    path: 'moderation/contact',
     component: ModContactComponent,
     data: {
       title: 'Moderation Contact'
+    },
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'moderation/users',
+    component: ModUsersComponent,
+    data: {
+      title: 'Moderation Users'
     },
     canActivate: [AuthGuard]
   }

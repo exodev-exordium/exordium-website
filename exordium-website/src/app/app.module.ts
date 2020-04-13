@@ -49,6 +49,7 @@ import { ProfileComponent } from './pages/dashboard/clients/profile/profile.comp
 
 // Moderation
 import { ModContactComponent } from './pages/dashboard/moderation/mod-contact/mod-contact.component';
+import { ModUsersComponent } from './pages/dashboard/moderation/mod-users/mod-users.component';
 
 @NgModule({
   declarations: [
@@ -87,6 +88,7 @@ import { ModContactComponent } from './pages/dashboard/moderation/mod-contact/mo
     ProfileComponent, 
 
     ModContactComponent,
+    ModUsersComponent,
   ],
   imports: [
     BrowserModule,
