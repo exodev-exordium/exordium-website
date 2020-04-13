@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject, HostListener } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { AuthService } from 'src/app/service/auth.service';
+import { Account } from 'src/app/service/shared/account';
 
 import * as jQuery from 'jquery';
 let $ = jQuery;
@@ -13,6 +14,11 @@ let $ = jQuery;
 export class NavDashboardComponent implements OnInit {
   // User Signed in?
   signedIn: boolean;
+  currentUser = new Account();
+  hasManagement: boolean;
+
+  // Managment Access Roles
+  moderationAccessRoles: any[] = ["moderation", "administration", "developer"];
 
   constructor(
     @Inject (DOCUMENT) private document: Document,
@@ -22,39 +28,59 @@ export class NavDashboardComponent implements OnInit {
   ngOnInit(): void {
     if (this.authService.isSignedIn === true) {
       this.signedIn = true;
+
+      this.authService.getUserData().subscribe(res => {
+        this.currentUser = res.response;
+
+        if (this.moderationAccessRoles.includes(this.currentUser.access.role)) {
+          this.hasManagement = true;
+        }
+      })
+
       this.framing();
+
     } else {
       this.signedIn = false;
     }
   }
 
-  @HostListener("window:resize", [])
-  onResize () {
-    this.framing();
+  // Signout access button
+  signout() {
+    console.log('Signed out.');
+    this.authService.signout();
   }
 
+  // Check what pages we have access to
+  checkAccessPage (array, key, value) {
+    return array.some(object => object[key] === value);
+  }
+
+  @HostListener("window:resize", [])
+  onResize () {
+    if (this.authService.isSignedIn === true) {
+      this.framing();
+    }
+  }
   framing() {
     let windowWidth = $(window).width();
 
     // Dashboard Navbar Height
     let dashboardNavHeight = $('.nav-dashboard-wrapper').outerHeight();
 
-    if (this.authService.isSignedIn === true) {
-      // Dashboard Menu Framing
-      $('.nav-dashboard-wrapper').parent().css({
-        "min-height": `${dashboardNavHeight}px`
-      });
+    // Dashboard Menu Framing
+    $('.nav-dashboard-wrapper').parent().css({
+      "min-height": `${dashboardNavHeight}px`
+    });
 
-      // Transparent
-      $('.nav-dashboard-wrapper.nav-dashboard-transparent').parent().css({
-        "margin-bottom": `-${dashboardNavHeight}px`
-      });
+    // Transparent
+    $('.nav-dashboard-wrapper.nav-dashboard-transparent').parent().css({
+      "margin-bottom": `-${dashboardNavHeight}px`
+    });
 
-      // Dashboard Nav
-      $('.nav-dashboard-wrapper').css({
-        "max-width": `${windowWidth}px`
-      });
-    }
+    // Dashboard Nav
+    $('.nav-dashboard-wrapper').css({
+      "max-width": `${windowWidth}px`
+    });
 
   }
 

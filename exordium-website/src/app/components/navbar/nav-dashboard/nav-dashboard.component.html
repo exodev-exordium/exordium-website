@@ -1,7 +1,8 @@
 <div class="container">
-  <ul class="nav py-2">
+
+  <ul class="nav py-2 float-left">
     <li class="nav-item">
-      <a class="nav-link btn active" href="javascript:;" routerLink ="/dashboard" routerLinkActive="active">Dashboard</a>
+      <a class="nav-link btn active" href="javascript:;" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
     </li>
     <li class="nav-item">
       <a class="nav-link btn" href="javascript:;">Link</a>
@@ -13,4 +14,27 @@
       <a class="nav-link btn disabled" href="javascript:;">Disabled</a>
     </li>
   </ul>
+
+  <ul class="nav py-2 float-right">
+    <li class="nav-item dropdown" *ngIf="hasManagement">
+      <a class="nav-link btn dropdown-toggle" href="javascript:;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Moderation
+        <i class="fa fa-fw fa-caret-down"></i>
+      </a>
+      <div class="dropdown-menu dropdown-menu-right dropdown-content">
+        <a class="dropdown-item" href="javascript:;" *ngIf="checkAccessPage(this.currentUser.access.pages, 'page', 'contact')" routerLink="/moderation/contact" routerLinkActive="active">Contact</a>
+        <a class="dropdown-item" href="javascript:;" *ngIf="checkAccessPage(this.currentUser.access.pages, 'page', 'users')" routerLink="/moderation/users" routerLinkActive="active"> Users</a>
+      </div>
+    </li>
+    <div class="nav-item dropdown ml-2">
+      <img src="assets/img/avatars/female-4.jpg" alt="User" class="avatar avatar-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <div class="dropdown-menu dropdown-menu-right dropdown-content">
+        <h6 class="dropdown-header">Account</h6>
+        <a class="dropdown-item" href="javascript:;">Profile</a>
+        <a class="dropdown-item" href="javascript:;">Settings</a>
+        <a class="dropdown-item" href="javascript:;" (click)="signout()">Sign out</a>
+      </div>
+    </div>
+  </ul>
+
 </div>
