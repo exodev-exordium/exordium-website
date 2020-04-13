@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { jarallax, jarallaxElement } from 'jarallax';
+import { jarallax } from 'jarallax';
 
 @Component({
   selector: 'app-blog',
@@ -15,7 +15,6 @@ export class BlogComponent implements OnInit {
   }
 
   jarallaxInit() {
-    jarallaxElement();
     jarallax(document.querySelectorAll('.jarallax'), {
       speed: 0.6
     });

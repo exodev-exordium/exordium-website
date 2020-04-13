@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { jarallax, jarallaxElement } from 'jarallax';
+import { jarallax } from 'jarallax';
 import { AuthService } from 'src/app/service/auth.service';
 import { ContactService } from 'src/app/service/contact.service';
 
@@ -38,7 +38,6 @@ export class ContactComponent implements OnInit {
   }
 
   jarallaxInit() {
-    jarallaxElement();
     jarallax(document.querySelectorAll('.jarallax'), {
       speed: 0.6
     });

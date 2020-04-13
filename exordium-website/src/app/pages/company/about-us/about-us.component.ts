@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { jarallax, jarallaxElement } from 'jarallax';
+import { jarallax } from 'jarallax';
 import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
@@ -14,11 +14,6 @@ export class AboutUsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.jarallaxInit();
-  }
-
-  jarallaxInit() {
-    jarallaxElement();
     jarallax(document.querySelectorAll('.jarallax'), {
       speed: 0.6
     });
