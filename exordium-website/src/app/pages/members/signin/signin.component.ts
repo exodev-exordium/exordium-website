@@ -89,7 +89,8 @@ export class SigninComponent implements OnInit {
 
       this.authService.signin(this.signinForm.value).subscribe((res) => {
         localStorage.setItem('access_token', res.token)
-        this.authService.getUserProfile(res._id).subscribe(
+
+        this.authService.getUserData().subscribe(
             (res) => {
                 this.router.navigate([`/dashboard`]);
             }
