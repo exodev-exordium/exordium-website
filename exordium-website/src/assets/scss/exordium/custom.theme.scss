@@ -79,21 +79,21 @@ div.aboutNav {
             }
 
             .nav li {
-                a {
+                a.nav-link {
                     color: rgba(255, 255, 255, 0.5);
 
                     &:hover {
                         color: rgba(255, 255, 255, 0.75);
                     }
                 }
-                .active {
+                a.nav-link.active {
                     color: rgba(255, 255, 255, 0.95);
 
                     &:hover {
                         color: rgba(255, 255, 255, 1);
                     }
                 }
-                .disabled {
+                a.nav-link.disabled {
                     opacity: 0.5;
                 }
             }
