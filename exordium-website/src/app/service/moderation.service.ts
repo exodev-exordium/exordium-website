@@ -49,4 +49,17 @@ export class ModerationService {
             catchError(this.handleError)
         )
     }
+
+        // Get Contact Emails
+        getUsers (): Observable<any> {
+            let api = `${this.endpoint}/moderation/users`;
+            return this.http.get(api, { headers: this.headers }).pipe(
+                map(
+                    (res: Response) => {
+                        return res || {}
+                    }
+                ),
+                catchError(this.handleError)
+            )
+        }
 }
