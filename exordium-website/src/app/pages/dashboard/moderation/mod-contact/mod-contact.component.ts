@@ -10,7 +10,7 @@ import { Account } from 'src/app/service/shared/account';
   styleUrls: ['./mod-contact.component.scss']
 })
 export class ModContactComponent implements OnInit {
-  public currentUser = new Account();
+  currentUser = new Account();
   contactEmails: any[];
 
   constructor(

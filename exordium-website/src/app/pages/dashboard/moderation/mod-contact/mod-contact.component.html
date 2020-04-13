@@ -15,44 +15,53 @@
 
 <!-- List Contact -->
 <section>
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col">
-          <div class="row">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col">
+        <div class="row">
 
-            <div class="col-12 col-lg-6" *ngFor="let email of contactEmails">
-              <div class="card card-body">
-                <div class="flex-grow-1">
-                    <div class="h3">{{email.person.realname}}</div>
-                    <p class="text-muted">
-                        <i class="fa fa-envelope"></i>
-                        {{email.person.email}}
+          <div class="col-12 col-lg-6" *ngFor="let email of contactEmails">
+            <div class="card card-body">
+              <div class="flex-grow-1">
+                  <div class="h3">
+                    {{email.person.realname}}
+                    <span class="badge badge-secondary float-right" *ngIf="email.company">
+                      {{email.company}}
+                    </span>
+                  </div>
+                  <p class="text-muted">
+                    <span *ngIf="email.person.email">
+                      <i class="fa fa-envelope"></i>
+                      {{email.person.email}}
+                    </span>
 
-                        <i class="fa fa-phone"></i>
-                        {{email.person.phone}}
-                    </p>
-                    <p class="my-4">
-                        {{email.message}}
-                    </p>
-                    <p>
-                        <span class="badge badge-secondary mr-2">
-                            <i class="fa fa-clock"></i>
-                            {{email.created.createdAt}}
-                        </span>
-                        <span class="badge badge-secondary">
-                            <i class="fa fa-globe"></i>
-                            {{email.created.ipAddress}}
-                        </span>
-                    </p>
-                </div>
+                    <span *ngIf="email.person.phone">
+                      <i class="fa fa-phone"></i>
+                      {{email.person.phone}}
+                    </span>
+                  </p>
+                  <p class="my-4">
+                      {{email.message}}
+                  </p>
+                  <p>
+                      <span class="badge badge-info mr-2">
+                          <i class="fa fa-clock"></i>
+                          {{email.created.createdAt}}
+                      </span>
+                      <span class="badge badge-info">
+                          <i class="fa fa-globe"></i>
+                          {{email.created.ipAddress}}
+                      </span>
+                  </p>
               </div>
             </div>
-
           </div>
+
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
 <!-- Footer -->
 <app-footer-primary></app-footer-primary>
