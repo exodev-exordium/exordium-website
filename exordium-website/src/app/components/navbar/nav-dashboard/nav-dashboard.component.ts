@@ -32,7 +32,7 @@ export class NavDashboardComponent implements OnInit {
       this.authService.getUserData().subscribe(res => {
         this.currentUser = res.response;
 
-        if (this.moderationAccessRoles.includes(this.currentUser.access.role)) {
+        if (this.moderationAccessRoles.includes(this.currentUser.access.roles)) {
           this.hasManagement = true;
         }
       })
