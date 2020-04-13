@@ -1,1 +1,155 @@
-<p>profile works!</p>
+<!-- Header -->
+<app-transparent-header></app-transparent-header>
+
+<!-- Welcome Message -->
+<section class="bg-dark text-light header-inner p-0 jarallax position-relative" data-jarallax data-speed="0.2" data-overlay>
+    <img src="https://source.unsplash.com/1920x1080/?forest,dark mountain" alt="Image" class="jarallax-img opacity-20">
+    <div class="container py-0">
+      <div class="row d-flex my-4 my-md-6 mt-11" data-aos="fade-up">
+        <div class="col-9 align-self-center">
+
+          <h1 class="display-4 mb-1 text-capitalize">
+            {{this.currentUser.username}}
+          </h1>
+          <p class="lead mb-0">
+            <span class="badge badge-light mr-2">
+              <i class="fa fa-fw fa-user"></i>
+              User
+            </span>
+            <span class="badge badge-success mr-2">
+              <i class="fa fa-fw fa-money-bill-wave"></i>
+              Paid
+            </span>
+            <span class="badge badge-danger mr-2">
+              <i class="fa fa-fw fa-tools"></i>
+              Beta Tester
+            </span>
+            <span class="badge badge-info mr-2">
+              <i class="fa fa-fw fa-users"></i>
+              Community Supporter
+            </span>
+
+            <span class="badge badge-warning mr-2">
+              <i class="fa fa-fw fa-star"></i>
+              Staff
+            </span>
+            <span class="badge badge-primary-3 mr-2">
+              <i class="fa fa-fw fa-star"></i>
+              Moderator
+            </span>
+            <span class="badge badge-primary-2 mr-2">
+              <i class="fa fa-fw fa-star-shooting"></i>
+              Administrator
+            </span>
+            <span class="badge badge-primary mr-2">
+              <i class="fa fa-fw fa-code"></i>
+              Developer
+            </span>
+
+            <span class="badge badge-secondary mr-2">
+              <i class="fab fa-fw fa-github"></i>
+              Github
+            </span>
+            <span class="badge badge-secondary mr-2">
+              <i class="fab fa-fw fa-discord"></i>
+              Discord
+            </span>
+
+          </p>
+
+        </div>
+        <div class="col-3 align-self-center text-right">
+          <img src="assets/img/avatars/female-4.jpg" alt="Avatar" class="avatar avatar-xlg">
+        </div>
+      </div>
+    </div>
+    <div class="divider">
+      <div [inlineSVG]="'assets/img/dividers/divider-3.svg'" [setSVGAttributes]="{ class: 'bg-primary-alt' }"></div> 
+    </div>
+</section>
+
+<!-- Quick Information -->
+<section class="bg-primary-alt">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-4">
+
+        <div class="card shadow-sm" data-aos="fade-right">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              My Profile
+            </li>
+            <li class="list-group-item">
+              Sessions
+            </li>
+            <li class="list-group-item">
+              Sign in Logs
+            </li>
+            <li class="list-group-item">
+              Account Settings
+            </li>
+          </ul>
+        </div>
+
+      </div>
+      <div class="col-md-8">
+
+        <div class="card shadow-sm" data-aos="fade-left">
+          <div class="card-body">
+
+            <h2>
+              My Profile
+            </h2>
+            <p>
+              If something feels wrong or incorrect, please contact our support team and or change your account settings!
+            </p>
+
+            <hr>
+
+            <form>
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Username</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="staticEmail" value="{{this.currentUser.username}}">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="staticEmail" value="{{this.currentUser.email}}">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-10">
+                  <a href="javascript:;" class="btn btn-sm btn-warning">
+                    <i class="fa fa-fw fa-lock"></i>
+                    Change my password
+                  </a>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Realname</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="staticEmail" value="{{this.currentUser.realname}}">
+                </div>
+              </div>
+            </form>
+
+          </div>
+          <div class="card-footer">
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Updates -->
+
+<!-- Footer -->
+<app-footer-primary></app-footer-primary>
