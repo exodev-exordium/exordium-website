@@ -17,8 +17,12 @@ class Country {
 }
 
 class Access {
-    role: String;
+    roles: Roles[];
     pages: Pages[];
+}
+
+class Roles {
+    role: String;
 }
 
 class Pages {
