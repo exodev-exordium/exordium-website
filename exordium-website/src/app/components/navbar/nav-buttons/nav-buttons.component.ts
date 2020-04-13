@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-nav-buttons',
@@ -7,23 +6,10 @@ import { AuthService } from 'src/app/service/auth.service';
   styleUrls: ['./nav-buttons.component.scss']
 })
 export class NavButtonsComponent implements OnInit {
-  signedIn: boolean;
 
-  constructor(
-    private authService: AuthService
-  ) { }
+  constructor() { }
 
   ngOnInit(): void {
-    if (this.authService.isSignedIn === true) {
-      this.signedIn = true;
-    } else {
-      this.signedIn = false;
-    }
-  }
-
-  signout() {
-    console.log('Signed out.');
-    this.authService.signout();
   }
 
 }
