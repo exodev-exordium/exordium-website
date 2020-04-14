@@ -2,7 +2,7 @@
 <app-transparent-header></app-transparent-header>
 
 <!-- Profile Header -->
-<section class="bg-dark text-light header-inner p-0 jarallax position-relative" data-jarallax data-speed="0.2" data-overlay>
+<section *ngIf="currentUser" class="bg-dark text-light header-inner p-0 jarallax position-relative" data-jarallax data-speed="0.2" data-overlay>
     <img src="https://source.unsplash.com/1920x1080/?forest,dark mountain" alt="Image" class="jarallax-img opacity-20">
     <div class="container py-0">
       <div class="row d-flex my-4 my-md-6 mt-11" data-aos="fade-up">
@@ -69,7 +69,7 @@
 </section>
 
 <!-- Profile Data -->
-<section *ngIf="this.currentUser" class="bg-primary-alt">
+<section *ngIf="currentUser" class="bg-primary-alt">
   <div class="container">
 
     <div class="row">

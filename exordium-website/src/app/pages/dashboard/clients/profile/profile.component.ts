@@ -1,8 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { jarallax } from 'jarallax';
 import { AuthService } from 'src/app/service/auth.service';
-import { Account } from 'src/app/service/shared/account';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-profile',
@@ -10,7 +8,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  public currentUser = new Account();
+  public currentUser;
 
   constructor(
     public authService: AuthService
@@ -30,14 +28,11 @@ export class ProfileComponent implements OnInit {
     const role = [{ role: websiteRole }];
     const apiRoles = this.currentUser.access.roles;
 
-    var result = role.some(function (obj1) {
-      return apiRoles.some(function (obj2) {
+    return role.some(obj1 => {
+      return apiRoles.some(obj2 => {
         return obj1.role == obj2.role;
       });
     });
-
-    console.log(apiRoles)
-    return result;
   }
 
   displayConnected (service) {
