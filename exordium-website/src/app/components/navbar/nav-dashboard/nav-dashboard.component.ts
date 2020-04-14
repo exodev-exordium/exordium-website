@@ -53,8 +53,8 @@ export class NavDashboardComponent implements OnInit {
 
   // checkRoles
   checkRoles (webRoles, apiRoles) {
-    var result = webRoles.some(function(obj1){
-      return apiRoles.some(function(obj2){
+    var result = webRoles.some(function(obj1) {
+      return apiRoles.some(function(obj2) {
         return obj1.role == obj2.role;
       });
     });
