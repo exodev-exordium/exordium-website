@@ -4,7 +4,7 @@ import { AuthService } from 'src/app/service/auth.service';
 import { Account } from 'src/app/service/shared/account';
 
 import * as jQuery from 'jquery';
-let $ = jQuery;
+const $ = jQuery;
 
 @Component({
   selector: 'app-nav-dashboard',
@@ -18,7 +18,7 @@ export class NavDashboardComponent implements OnInit {
   hasManagement: boolean;
 
   // Managment Access Roles
-  moderationAccessRoles: any[] = [{ role: "moderator"}, { role: "administrator"}, { role: "developer"}];
+  moderationAccessRoles: any[] = [{ role: 'moderator'}, { role: 'administrator'}, { role: 'developer'}];
 
   constructor(
     @Inject (DOCUMENT) private document: Document,
@@ -36,7 +36,7 @@ export class NavDashboardComponent implements OnInit {
           this.hasManagement = true;
         }
 
-      })
+      });
 
       this.framing();
 
@@ -52,46 +52,46 @@ export class NavDashboardComponent implements OnInit {
   }
 
   // checkRoles
-  checkRoles (webRoles, apiRoles) {
-    var result = webRoles.some(function(obj1) {
+  checkRoles(webRoles, apiRoles) {
+    const result = webRoles.some(function(obj1) {
       return apiRoles.some(function(obj2) {
         return obj1.role == obj2.role;
       });
     });
-    
+
     return result;
   }
 
   // Check what pages we have access to
-  checkAccessPage (array, key, value) {
+  checkAccessPage(array, key, value) {
     return array.some(object => object[key] === value);
   }
 
-  @HostListener("window:resize", [])
-  onResize () {
+  @HostListener('window:resize', [])
+  onResize() {
     if (this.authService.isSignedIn === true) {
       this.framing();
     }
   }
   framing() {
-    let windowWidth = $(window).width();
+    const windowWidth = $(window).width();
 
     // Dashboard Navbar Height
-    let dashboardNavHeight = $('.nav-dashboard-wrapper').outerHeight();
+    const dashboardNavHeight = $('.nav-dashboard-wrapper').outerHeight();
 
     // Dashboard Menu Framing
     $('.nav-dashboard-wrapper').parent().css({
-      "min-height": `${dashboardNavHeight}px`
+      'min-height': `${dashboardNavHeight}px`
     });
 
     // Transparent
     $('.nav-dashboard-wrapper.nav-dashboard-transparent').parent().css({
-      "margin-bottom": `-${dashboardNavHeight}px`
+      'margin-bottom': `-${dashboardNavHeight}px`
     });
 
     // Dashboard Nav
     $('.nav-dashboard-wrapper').css({
-      "max-width": `${windowWidth}px`
+      'max-width': `${windowWidth}px`
     });
 
   }

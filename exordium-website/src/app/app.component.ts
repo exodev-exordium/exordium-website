@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { Title } from "@angular/platform-browser";
+import { Title } from '@angular/platform-browser';
 
 import { map, filter, scan } from 'rxjs/operators';
 
@@ -11,13 +11,13 @@ import { map, filter, scan } from 'rxjs/operators';
 })
 
 export class AppComponent implements OnInit {
-  constructor (private router: Router, private titleService: Title) {}
+  constructor(private router: Router, private titleService: Title) {}
 
   ngOnInit() {
 
     this.router.events
       .pipe(
-        filter((event:any) => event instanceof NavigationEnd),
+        filter((event: any) => event instanceof NavigationEnd),
         map(() => this.router)
       ).subscribe((event) => {
         const title = this.getTitle(this.router.routerState, this.router.routerState.root).join(' - ');
@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
     );
   }
 
-  getTitle (state, parent) {
+  getTitle(state, parent) {
     const data = [];
     if (parent && parent.snapshot.data && parent.snapshot.data.title) {
       data.push(parent.snapshot.data.title);

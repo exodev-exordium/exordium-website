@@ -6,7 +6,7 @@ import { AuthService } from 'src/app/service/auth.service';
 import { jarallax, jarallaxElement } from 'jarallax';
 
 import * as jQuery from 'jquery';
-let $ = jQuery;
+const $ = jQuery;
 
 import 'bootstrap-notify';
 
@@ -22,7 +22,7 @@ export class SigninComponent implements OnInit {
     private formBuilder: FormBuilder,
     public authService: AuthService,
     public router: Router
-  ) { 
+  ) {
     this.signinForm = this.formBuilder.group({
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required, Validators.minLength(6)]],
@@ -47,19 +47,19 @@ export class SigninComponent implements OnInit {
   }
 
   onSubmit() {
-    var sourceButton = $(".submitSignin");
+    const sourceButton = $('.submitSignin');
 
-    sourceButton.attr("disabled", true);
-    sourceButton.addClass("m-progress");
+    sourceButton.attr('disabled', true);
+    sourceButton.addClass('m-progress');
 
-    var notify = $.notify({
+    const notify = $.notify({
       icon: 'fa fa-fw fa-info-circle',
       message: '<strong>Trying to sign you in!</strong> This could take a moment...'
-    },{
+    }, {
       type: 'primary',
       placement: {
-        from: "bottom",
-        align: "right"
+        from: 'bottom',
+        align: 'right'
       },
       showProgressbar: true,
       delay: 10000,
@@ -81,39 +81,39 @@ export class SigninComponent implements OnInit {
     // test the data
     if (this.signinForm.invalid) {
       notify.update({
-        'type': 'danger',
-        'icon': 'fa fa-fw fa-times',
-        'message': `<strong>Error!</strong> Please make sure you enter all the fields properly.`
+        type: 'danger',
+        icon: 'fa fa-fw fa-times',
+        message: `<strong>Error!</strong> Please make sure you enter all the fields properly.`
       });
     } else {
 
       this.authService.signin(this.signinForm.value).subscribe((res) => {
-        localStorage.setItem('access_token', res.token)
+        localStorage.setItem('access_token', res.token);
 
         this.authService.getUserData().subscribe(
             (res) => {
                 this.router.navigate([`/dashboard`]);
             }
-        )
+        );
 
         notify.update({
-          'type': 'success',
-          'icon': 'fa fa-fw fa-check',
-          'message': `<strong>Success!</strong> You've successfully signed into Exordium.`
+          type: 'success',
+          icon: 'fa fa-fw fa-check',
+          message: `<strong>Success!</strong> You've successfully signed into Exordium.`
         });
       },
       (err) => {
         notify.update({
-          'type': 'danger',
-          'icon': 'fa fa-fw fa-times',
-          'message': `<strong>Error!</strong> Please check that your email and password are correct.`
+          type: 'danger',
+          icon: 'fa fa-fw fa-times',
+          message: `<strong>Error!</strong> Please check that your email and password are correct.`
         });
-      })
+      });
     }
 
-    setTimeout(function () {
-      sourceButton.removeAttr("disabled");
-      sourceButton.removeClass("m-progress");
+    setTimeout(function() {
+      sourceButton.removeAttr('disabled');
+      sourceButton.removeClass('m-progress');
     }, 2000);
 
   }

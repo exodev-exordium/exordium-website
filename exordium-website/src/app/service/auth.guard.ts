@@ -10,7 +10,7 @@ import { AuthService } from './auth.service';
 })
 export class AuthGuard implements CanActivate {
 
-  constructor (
+  constructor(
     public authService: AuthService,
     public router: Router
   ) { }
@@ -18,13 +18,13 @@ export class AuthGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    
+
     if (this.authService.isSignedIn !== true) {
-      window.alert("Access is not allowed!");
+      window.alert('Access is not allowed!');
       this.router.navigate(['members/signin']);
     }
-    
+
     return true;
   }
-  
+
 }

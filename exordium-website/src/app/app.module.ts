@@ -55,12 +55,12 @@ import { ModUsersComponent } from './pages/dashboard/moderation/mod-users/mod-us
   declarations: [
     AppComponent,
 
-    DarkHeaderComponent, 
-    LightHeaderComponent, 
+    DarkHeaderComponent,
+    LightHeaderComponent,
     TransparentHeaderComponent,
-    NavMainComponent, 
-    NavButtonsComponent, 
-    NavAboutComponent, 
+    NavMainComponent,
+    NavButtonsComponent,
+    NavAboutComponent,
     NavDashboardComponent,
     PrimaryFooterComponent,
     ScrollToTopComponent,
@@ -80,24 +80,24 @@ import { ModUsersComponent } from './pages/dashboard/moderation/mod-users/mod-us
     SigninComponent,
     RegisterComponent,
 
-    BlogComponent, 
-    ArticleComponent, 
-    
-    DashboardComponent, 
-    SettingsComponent, 
-    ProfileComponent, 
+    BlogComponent,
+    ArticleComponent,
+
+    DashboardComponent,
+    SettingsComponent,
+    ProfileComponent,
 
     ModContactComponent,
     ModUsersComponent,
   ],
   imports: [
     BrowserModule,
-    RecaptchaModule, 
+    RecaptchaModule,
     RecaptchaFormsModule,
     FormsModule,
     ReactiveFormsModule,
     NgSelectModule,
-    HttpClientModule, 
+    HttpClientModule,
     InlineSVGModule.forRoot(),
     AppRoutingModule
   ],

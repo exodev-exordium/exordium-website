@@ -15,13 +15,13 @@ import { Contact } from './shared/contact';
 export class ContactService {
     private endpoint = new API().endpoint;
 
-    constructor (
+    constructor(
         private http: HttpClient,
         public router: Router
     ) { }
 
     // Handle Errors
-    handleError (error: HttpErrorResponse) {
+    handleError(error: HttpErrorResponse) {
         let msg = '';
         if (error.error instanceof ErrorEvent) {
             // client-side error
@@ -35,11 +35,11 @@ export class ContactService {
     }
 
     // Send Contact Request
-    sendContact (contact: Contact): Observable<any> {
-        let api = `${this.endpoint}/public/contact`;
+    sendContact(contact: Contact): Observable<any> {
+        const api = `${this.endpoint}/public/contact`;
 
         return this.http.post (api, contact).pipe(
             catchError(this.handleError)
-        )
+        );
     }
 }

@@ -21,7 +21,7 @@ export class ProfileComponent implements OnInit {
 
     this.authService.getUserData().subscribe(res => {
       this.currentUser = res.response;
-    })
+    });
   }
 
   displayRole(websiteRole) {
@@ -35,7 +35,7 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  displayConnected (service) {
+  displayConnected(service) {
     // function for displaying whether github and discord have been connected
   }
 

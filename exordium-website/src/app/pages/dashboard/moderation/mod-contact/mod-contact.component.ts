@@ -24,20 +24,20 @@ export class ModContactComponent implements OnInit {
       this.currentUser = res.response;
 
       this.checkPermissions();
-    })
+    });
   }
 
-  checkAccessPage (array, key, value) {
+  checkAccessPage(array, key, value) {
     return array.some(object => object[key] === value);
   }
 
   checkPermissions() {
     if (this.checkAccessPage(this.currentUser.access.pages, 'page', 'contact')) {
-      
+
       this.moderationService.contactEmails().subscribe(res => {
         this.contactEmails = res;
         console.log(this.contactEmails);
-      })
+      });
 
     } else {
       this.router.navigate(['dashboard']);

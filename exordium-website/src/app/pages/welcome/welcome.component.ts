@@ -31,17 +31,17 @@ export class WelcomeComponent implements OnInit {
   }
 
   typedjsInit() {
-    var options = {
+    const options = {
       strings: [
-        'Secure Internet.^2000', 
+        'Secure Internet.^2000',
         'Private Data.^2000',
-        'Military Grade.^2000', 
-        'Environmental.^2000', 
+        'Military Grade.^2000',
+        'Environmental.^2000',
       ],
       loop: true,
       typeSpeed: 45
     };
-    var typed = new Typed('.typed', options);
+    const typed = new Typed('.typed', options);
   }
 
 }

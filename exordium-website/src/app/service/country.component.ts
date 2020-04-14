@@ -60,7 +60,7 @@ export class Countries {
         { code: 'CW', name: 'Curaçao' },
         { code: 'CY', name: 'Cyprus' },
         { code: 'CZ', name: 'Czech Republic' },
-        { code: 'CI', name: "Côte D'Ivoire" },
+        { code: 'CI', name: 'Côte D\'Ivoire' },
         { code: 'DK', name: 'Denmark' },
         { code: 'DJ', name: 'Djibouti' },
         { code: 'DM', name: 'Dominica' },

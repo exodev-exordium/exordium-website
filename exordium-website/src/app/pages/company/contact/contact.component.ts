@@ -5,7 +5,7 @@ import { AuthService } from 'src/app/service/auth.service';
 import { ContactService } from 'src/app/service/contact.service';
 
 import * as jQuery from 'jquery';
-let $ = jQuery;
+const $ = jQuery;
 
 import 'bootstrap-notify';
 
@@ -48,19 +48,19 @@ export class ContactComponent implements OnInit {
   }
 
   onSubmit() {
-    var sourceButton = $(".submitContact");
+    const sourceButton = $('.submitContact');
 
-    sourceButton.attr("disabled", true);
-    sourceButton.addClass("m-progress");
+    sourceButton.attr('disabled', true);
+    sourceButton.addClass('m-progress');
 
-    var notify = $.notify({
+    const notify = $.notify({
       icon: 'fa fa-fw fa-info-circle',
       message: '<strong>Sending your contact request!</strong> This could take a moment...'
-    },{
+    }, {
       type: 'primary',
       placement: {
-        from: "bottom",
-        align: "right"
+        from: 'bottom',
+        align: 'right'
       },
       showProgressbar: true,
       delay: 10000,
@@ -82,9 +82,9 @@ export class ContactComponent implements OnInit {
     // test the data
     if (this.contactForm.invalid) {
       notify.update({
-        'type': 'danger',
-        'icon': 'fa fa-fw fa-times',
-        'message': `<strong>Error!</strong> Please make sure you enter all the fields properly.`
+        type: 'danger',
+        icon: 'fa fa-fw fa-times',
+        message: `<strong>Error!</strong> Please make sure you enter all the fields properly.`
       });
     } else {
 
@@ -92,34 +92,34 @@ export class ContactComponent implements OnInit {
         console.log(res);
 
         if (res.result) {
-          this.contactForm.reset()
+          this.contactForm.reset();
 
           notify.update({
-            'type': 'success',
-            'icon': 'fa fa-fw fa-check',
-            'message': `<strong>Success!</strong> Your email request has been sent to our customer support team!`
+            type: 'success',
+            icon: 'fa fa-fw fa-check',
+            message: `<strong>Success!</strong> Your email request has been sent to our customer support team!`
           });
         } else if (res[0].msg) {
           notify.update({
-            'type': 'danger',
-            'icon': 'fa fa-fw fa-times',
-            'message': `<strong>Error!</strong> ${res[0].msg}`
+            type: 'danger',
+            icon: 'fa fa-fw fa-times',
+            message: `<strong>Error!</strong> ${res[0].msg}`
           });
         }
       },
       (err) => {
         notify.update({
-          'type': 'danger',
-          'icon': 'fa fa-fw fa-times',
-          'message': `<strong>Error!</strong> Plese check that the fields you entered are all correct.`
+          type: 'danger',
+          icon: 'fa fa-fw fa-times',
+          message: `<strong>Error!</strong> Plese check that the fields you entered are all correct.`
         });
-      })
+      });
 
     }
 
-    setTimeout(function () {
-      sourceButton.removeAttr("disabled");
-      sourceButton.removeClass("m-progress");
+    setTimeout(function() {
+      sourceButton.removeAttr('disabled');
+      sourceButton.removeClass('m-progress');
     }, 2000);
 
   }

@@ -18,13 +18,13 @@ export class ModerationService {
     private endpoint = new API().endpoint;
     private headers = new API().headers;
 
-    constructor (
+    constructor(
         private http: HttpClient,
         public router: Router
     ) { }
 
     // Handle Errors
-    handleError (error: HttpErrorResponse) {
+    handleError(error: HttpErrorResponse) {
         let msg = '';
         if (error.error instanceof ErrorEvent) {
             // client-side error
@@ -38,28 +38,28 @@ export class ModerationService {
     }
 
     // Get Contact Emails
-    contactEmails (): Observable<any> {
-        let api = `${this.endpoint}/moderation/contact`;
+    contactEmails(): Observable<any> {
+        const api = `${this.endpoint}/moderation/contact`;
         return this.http.get(api, { headers: this.headers }).pipe(
             map(
                 (res: Response) => {
-                    return res || {}
+                    return res || {};
                 }
             ),
             catchError(this.handleError)
-        )
+        );
     }
 
         // Get Contact Emails
-        getUsers (): Observable<any> {
-            let api = `${this.endpoint}/moderation/users`;
+        getUsers(): Observable<any> {
+            const api = `${this.endpoint}/moderation/users`;
             return this.http.get(api, { headers: this.headers }).pipe(
                 map(
                     (res: Response) => {
-                        return res || {}
+                        return res || {};
                     }
                 ),
                 catchError(this.handleError)
-            )
+            );
         }
 }

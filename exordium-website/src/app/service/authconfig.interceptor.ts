@@ -1,8 +1,8 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpResponse, HttpErrorResponse } from "@angular/common/http";
-import { tap } from "rxjs/operators";
-import { AuthService } from "./auth.service";
+import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpResponse, HttpErrorResponse } from '@angular/common/http';
+import { tap } from 'rxjs/operators';
+import { AuthService } from './auth.service';
 
 @Injectable()
 
@@ -17,7 +17,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
         req = req.clone({
             setHeaders: {
-                Authorization: "Bearer " + authToken
+                Authorization: 'Bearer ' + authToken
             }
         });
 

@@ -9,7 +9,7 @@ import { MustMatch } from 'src/app/helpers/mustmatch.validator';
 import { jarallax, jarallaxElement } from 'jarallax';
 
 import * as jQuery from 'jquery';
-let $ = jQuery;
+const $ = jQuery;
 
 import 'bootstrap-notify';
 
@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
     private formBuilder: FormBuilder,
     public authService: AuthService,
     public router: Router
-  ) { 
+  ) {
     this.countries = new Countries().countries;
 
     this.registerForm = this.formBuilder.group({
@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
       password: [null, [Validators.required, Validators.minLength(6)]],
       confirmPassword: [null, Validators.required],
       recaptcha: [null, Validators.required]
-    }, { validator: MustMatch('password', 'confirmPassword') })
+    }, { validator: MustMatch('password', 'confirmPassword') });
   }
 
   ngOnInit() {
@@ -57,19 +57,19 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    var sourceButton = $(".submitSignin");
+    const sourceButton = $('.submitSignin');
 
-    sourceButton.attr("disabled", true);
-    sourceButton.addClass("m-progress");
+    sourceButton.attr('disabled', true);
+    sourceButton.addClass('m-progress');
 
-    var notify = $.notify({
+    const notify = $.notify({
       icon: 'fa fa-fw fa-info-circle',
       message: '<strong>Sending your registration request!</strong> This could take a moment...'
-    },{
+    }, {
       type: 'primary',
       placement: {
-        from: "bottom",
-        align: "right"
+        from: 'bottom',
+        align: 'right'
       },
       showProgressbar: true,
       delay: 10000,
@@ -91,36 +91,36 @@ export class RegisterComponent implements OnInit {
     // test the data
     if (this.registerForm.invalid) {
       notify.update({
-        'type': 'danger',
-        'icon': 'fa fa-fw fa-times',
-        'message': `<strong>Error!</strong> Please make sure you enter all the fields properly.`
+        type: 'danger',
+        icon: 'fa fa-fw fa-times',
+        message: `<strong>Error!</strong> Please make sure you enter all the fields properly.`
       });
     } else {
 
       this.authService.register(this.registerForm.value).subscribe((res) => {
         if (res.result) {
-          this.registerForm.reset()
+          this.registerForm.reset();
           this.router.navigate(['members/signin']);
 
           notify.update({
-            'type': 'success',
-            'icon': 'fa fa-fw fa-check',
-            'message': `<strong>Success!</strong> Your Exordium account has been successfully created!.`
+            type: 'success',
+            icon: 'fa fa-fw fa-check',
+            message: `<strong>Success!</strong> Your Exordium account has been successfully created!.`
           });
         }
       },
       (err) => {
         notify.update({
-          'type': 'danger',
-          'icon': 'fa fa-fw fa-times',
-          'message': `<strong>Error!</strong> Please check that the fields you entered are all correct.`
+          type: 'danger',
+          icon: 'fa fa-fw fa-times',
+          message: `<strong>Error!</strong> Please check that the fields you entered are all correct.`
         });
-      })
+      });
     }
 
-    setTimeout(function () {
-      sourceButton.removeAttr("disabled");
-      sourceButton.removeClass("m-progress");
+    setTimeout(function() {
+      sourceButton.removeAttr('disabled');
+      sourceButton.removeClass('m-progress');
     }, 2000);
 
   }

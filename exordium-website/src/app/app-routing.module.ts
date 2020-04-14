@@ -12,7 +12,7 @@ import { DashboardModule } from './pages/dashboard/dashboard.module';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { PricingComponent } from './pages/pricing/pricing.component';
 
-const routes : Routes = [
+const routes: Routes = [
   {
     path: '',
     redirectTo: '/welcome',
@@ -39,7 +39,7 @@ const routes : Routes = [
     path: '**',
     redirectTo: 'error/not-found'
   }
-]
+];
 
 @NgModule({
   declarations: [],

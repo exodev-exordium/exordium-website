@@ -24,10 +24,10 @@ export class ModUsersComponent implements OnInit {
       this.currentUser = res.response;
 
       this.checkPermissions();
-    })
+    });
   }
 
-  checkAccessPage (array, key, value) {
+  checkAccessPage(array, key, value) {
     return array.some(object => object[key] === value);
   }
 
@@ -36,7 +36,7 @@ export class ModUsersComponent implements OnInit {
       this.moderationService.getUsers().subscribe(res => {
         this.users = res;
         console.log(this.users);
-      })
+      });
     } else {
       this.router.navigate(['dashboard']);
     }
