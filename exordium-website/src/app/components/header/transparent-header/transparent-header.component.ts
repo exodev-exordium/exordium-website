@@ -29,7 +29,7 @@ export class TransparentHeaderComponent implements OnInit {
     this.addFraming();
     this.stickyTop();
 
-    $('.navbar-toggler').click(function() {
+    $('.navbar-toggler').click(() => {
       $('nav.navbar').toggleClass('navbar-open');
     });
   }

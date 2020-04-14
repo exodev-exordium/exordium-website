@@ -30,7 +30,7 @@ export class ProfileComponent implements OnInit {
 
     return role.some(obj1 => {
       return apiRoles.some(obj2 => {
-        return obj1.role == obj2.role;
+        return obj1.role === obj2.role;
       });
     });
   }

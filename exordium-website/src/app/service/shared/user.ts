@@ -1,9 +1,9 @@
 export class User {
-    _id: String;
-    username: String;
-    email: String;
-    realname: String;
-    country: String;
-    password: String;
-    recaptcha: String;
+    _id: string;
+    username: string;
+    email: string;
+    realname: string;
+    country: string;
+    password: string;
+    recaptcha: string;
 }

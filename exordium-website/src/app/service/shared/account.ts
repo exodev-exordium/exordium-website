@@ -1,8 +1,8 @@
 export class Account {
-    _id: String;
-    username: String;
-    email: String;
-    realname: String;
+    _id: string;
+    username: string;
+    email: string;
+    realname: string;
     registration: Registration;
     access: Access;
 }
@@ -12,8 +12,8 @@ class Registration {
 }
 
 class Country {
-    code: String;
-    name: String;
+    code: string;
+    name: string;
 }
 
 class Access {
@@ -22,9 +22,9 @@ class Access {
 }
 
 class Roles {
-    role: String;
+    role: string;
 }
 
 class Pages {
-    page: String;
+    page: string;
 }

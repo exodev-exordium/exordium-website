@@ -118,7 +118,7 @@ export class RegisterComponent implements OnInit {
       });
     }
 
-    setTimeout(function() {
+    setTimeout(() => {
       sourceButton.removeAttr('disabled');
       sourceButton.removeClass('m-progress');
     }, 2000);
