@@ -11,7 +11,6 @@ import { User } from './shared/user';
 @Injectable({
     providedIn: 'root'
 })
-
 export class AuthService {
 
     private endpoint = new API().endpoint;
@@ -64,24 +63,11 @@ export class AuthService {
 
     // User Data
     getUserData (): Observable<any> {
-        let api = `${this.endpoint}/auth/user/me`;
+        let api = `${this.endpoint}/user/me`;
         return this.http.get(api, { headers: this.headers }).pipe(
             map(
                 (res: Response) => {
                     return res || {};
-                }
-            ),
-            catchError(this.handleError)
-        )
-    }
-
-    // User Profile
-    getUserProfile (id): Observable<any> {
-        let api = `${this.endpoint}/auth/user/${id}`;
-        return this.http.get(api, { headers: this.headers }).pipe(
-            map(
-                (res: Response) => {
-                    return res || {}
                 }
             ),
             catchError(this.handleError)
