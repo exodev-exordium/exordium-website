@@ -18,7 +18,7 @@ export class NavDashboardComponent implements OnInit {
   hasManagement: boolean;
 
   // Managment Access Roles
-  moderationAccessRoles: any[] = ["moderation", "administration", "developer"];
+  moderationAccessRoles: any[] = [{ role: "moderator"}, { role: "administrator"}, { role: "developer"}];
 
   constructor(
     @Inject (DOCUMENT) private document: Document,
@@ -32,9 +32,10 @@ export class NavDashboardComponent implements OnInit {
       this.authService.getUserData().subscribe(res => {
         this.currentUser = res.response;
 
-        if (this.moderationAccessRoles.includes(this.currentUser.access.roles)) {
+        if (this.checkRoles(this.moderationAccessRoles, this.currentUser.access.roles)) {
           this.hasManagement = true;
         }
+
       })
 
       this.framing();
@@ -48,6 +49,17 @@ export class NavDashboardComponent implements OnInit {
   signout() {
     console.log('Signed out.');
     this.authService.signout();
+  }
+
+  // checkRoles
+  checkRoles (webRoles, apiRoles) {
+    var result = webRoles.some(function(obj1){
+      return apiRoles.some(function(obj2){
+        return obj1.role == obj2.role;
+      });
+    });
+    
+    return result;
   }
 
   // Check what pages we have access to
