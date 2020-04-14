@@ -14,17 +14,76 @@
 </section>
 
 <!-- Users -->
-<section>
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col">
-            <div class="row">
+<section class="bg-primary-alt">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-12">
 
-                {{users}}
+                <div class="card shadow mb-5">
+                    <div class="card-header text-bold">
+                      <i class="fa fa-fw fa-users"></i>
+                      Users (#)
+                    </div>
+                    <div class="card-body">
+          
+                      <div class="d-flex p-2 connections-item bg-primary-3-alt" *ngFor="let user of users">
+                        <div class="connections-country align-self-center">
+                          <img src="assets/img/flags/Canada.png" class="img-fluid shadow" />
+                        </div>
+                        <div class="flex-grow-1">
+                          
+                          <ul class="nav connections-nav">
+                            <li class="nav-item">
+                              <a class="nav-link active" href="javascript:;">
+                                <i class="fa fa-envelope"></i>
+                                {{user.email}}
+                              </a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link active" href="javascript:;">
+                                <i class="fa fa-user"></i>
+                                {{user.username}}
+                              </a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link active" href="javascript:;">
+                                <i class="fa fa-globe-americas"></i>
+                                {{user.updated.ipAddress}}
+                              </a>
+                            </li>
+                          </ul>
+          
+                        </div>
+                        <div class="">
+                            <div class="dropdown">
+                                <a class="btn btn-primary dropdown-toggle" href="javascript:;" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Modify
+                                    <i class="fa fa-fw fa-caret-down"></i>
+                                </a>
+                                
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="javascript:;">
+                                        <i class="fa fa-fw fa-search"></i>
+                                        View
+                                    </a>
+                                    <a class="dropdown-item" href="javascript:;">
+                                        <i class="fa fa-fw fa-cog"></i>
+                                        Edit
+                                    </a>
+                                    <a class="dropdown-item" href="javascript:;">
+                                        <i class="fa fa-fw fa-trash"></i>
+                                        Delete
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+          
+                    </div>
+                </div>
 
             </div>
         </div>
-      </div>
     </div>
   </section>
 
