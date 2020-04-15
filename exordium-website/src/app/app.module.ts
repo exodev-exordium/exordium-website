@@ -44,12 +44,20 @@ import { ArticleComponent } from './pages/blog/article/article.component';
 
 // Dashboard
 import { DashboardComponent } from './pages/dashboard/clients/dashboard/dashboard.component';
-import { SettingsComponent } from './pages/dashboard/clients/settings/settings.component';
-import { ProfileComponent } from './pages/dashboard/clients/profile/profile.component';
+
+// User
+import { UserOverviewComponent } from './pages/dashboard/clients/user/user-overview/user-overview.component';
+import { UserSessionsComponent } from './pages/dashboard/clients/user/user-sessions/user-sessions.component';
+import { UserLogsComponent } from './pages/dashboard/clients/user/user-logs/user-logs.component';
+import { UserConnectionsComponent } from './pages/dashboard/clients/user/user-connections/user-connections.component';
+import { UserSettingsComponent } from './pages/dashboard/clients/user/user-settings/user-settings.component';
 
 // Moderation
 import { ModContactComponent } from './pages/dashboard/moderation/mod-contact/mod-contact.component';
-import { ModUsersComponent } from './pages/dashboard/moderation/mod-users/mod-users.component';
+import { ModUsersComponent } from './pages/dashboard/moderation/users/mod-users/mod-users.component';
+import { ModUsersViewComponent } from './pages/dashboard/moderation/users/mod-users-view/mod-users-view.component';
+import { ModUsersEditComponent } from './pages/dashboard/moderation/users/mod-users-edit/mod-users-edit.component';
+import { ModUsersDisableComponent } from './pages/dashboard/moderation/users/mod-users-disable/mod-users-disable.component';
 
 @NgModule({
   declarations: [
@@ -84,11 +92,18 @@ import { ModUsersComponent } from './pages/dashboard/moderation/mod-users/mod-us
     ArticleComponent,
 
     DashboardComponent,
-    SettingsComponent,
-    ProfileComponent,
+
+    UserOverviewComponent,
+    UserSessionsComponent,
+    UserLogsComponent,
+    UserConnectionsComponent,
+    UserSettingsComponent,
 
     ModContactComponent,
     ModUsersComponent,
+    ModUsersViewComponent,
+    ModUsersEditComponent,
+    ModUsersDisableComponent
   ],
   imports: [
     BrowserModule,
