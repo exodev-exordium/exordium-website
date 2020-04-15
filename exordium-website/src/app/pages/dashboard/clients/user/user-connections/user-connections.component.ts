@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-user-connections',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-connections.component.scss']
 })
 export class UserConnectionsComponent implements OnInit {
+  public currentUser;
 
-  constructor() { }
+  constructor(
+    public authService: AuthService
+  ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.authService.getUserData().subscribe(res => {
+      this.currentUser = res.response;
+    });
   }
-
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-user-settings',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-settings.component.scss']
 })
 export class UserSettingsComponent implements OnInit {
+  public currentUser;
 
-  constructor() { }
+  constructor(
+    public authService: AuthService
+  ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.authService.getUserData().subscribe(res => {
+      this.currentUser = res.response;
+    });
   }
-
 }

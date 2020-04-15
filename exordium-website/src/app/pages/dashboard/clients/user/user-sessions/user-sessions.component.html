@@ -1,1 +1,74 @@
-<p>user-sessions works!</p>
+<!-- Header -->
+<app-transparent-header></app-transparent-header>
+
+<!-- Profile Header -->
+<app-user-cover></app-user-cover>
+
+<!-- Profile Data -->
+<section *ngIf="currentUser" class="bg-primary-alt">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-4">
+
+        <app-user-sidebar></app-user-sidebar>
+
+      </div>
+      <div class="col-md-8">
+
+        <div class="card shadow-sm" data-aos="fade-left">
+          <div class="card-body">
+
+            <h2>
+              Overview
+            </h2>
+            <p>
+              Here's a quick overview of your account. If any of your account settings seem incorrect and changed, please make sure you secure your account and contact our support team if neccessary. 
+            </p>
+
+            <hr>
+
+            <form>
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Username</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="staticEmail" value="{{this.currentUser.username}}">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="staticEmail" value="{{this.currentUser.email}}">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-10">
+                  <a href="javascript:;" class="btn btn-primary">
+                    <i class="fa fa-fw fa-lock"></i>
+                    Change my password
+                  </a>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Realname</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="staticEmail" value="{{this.currentUser.realname}}">
+                </div>
+              </div>
+            </form>
+
+          </div>
+          <div class="card-footer">
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Footer -->
+<app-footer-primary></app-footer-primary>
