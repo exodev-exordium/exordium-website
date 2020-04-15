@@ -3,11 +3,12 @@ import { jarallax } from 'jarallax';
 import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss']
+  selector: 'app-user-overview',
+  templateUrl: './user-overview.component.html',
+  styleUrls: ['./user-overview.component.scss']
 })
-export class ProfileComponent implements OnInit {
+export class UserOverviewComponent implements OnInit {
+
   public currentUser;
 
   constructor(
@@ -38,5 +39,5 @@ export class ProfileComponent implements OnInit {
   displayConnected(service) {
     // function for displaying whether github and discord have been connected
   }
-
+  
 }
