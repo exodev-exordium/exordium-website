@@ -7,11 +7,12 @@ import { CompanyModule } from './pages/company/company.module';
 import { MembersModule } from './pages/members/members.module';
 import { ErrorModule } from './pages/error/error.module';
 import { DashboardModule } from './pages/dashboard/dashboard.module';
+import { UserModule } from './pages/dashboard/clients/user/user.module';
+import { ModerationModule } from './pages/dashboard/moderation/moderation.module';
 
 // Page Components
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { PricingComponent } from './pages/pricing/pricing.component';
-
 const routes: Routes = [
   {
     path: '',
@@ -49,6 +50,8 @@ const routes: Routes = [
     MembersModule,
     ErrorModule,
     DashboardModule,
+    UserModule,
+    ModerationModule,
     RouterModule.forRoot(
       routes,
       {
