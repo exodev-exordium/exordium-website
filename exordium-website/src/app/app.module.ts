@@ -26,6 +26,8 @@ import { NavButtonsComponent } from './components/navbar/nav-buttons/nav-buttons
 import { TransparentHeaderComponent } from './components/header/transparent-header/transparent-header.component';
 import { PrimaryFooterComponent } from './components/footer/primary/primary.component';
 import { ScrollToTopComponent } from './components/window/scroll-to-top/scroll-to-top.component';
+import { UserCoverComponent } from './components/user/user-cover/user-cover.component';
+import { UserSidebarComponent } from './components/user/user-sidebar/user-sidebar.component';
 
 // Pages
 import { NotFoundComponent } from './pages/error/not-found/not-found.component';
@@ -72,6 +74,8 @@ import { ModUsersDisableComponent } from './pages/dashboard/moderation/users/mod
     NavDashboardComponent,
     PrimaryFooterComponent,
     ScrollToTopComponent,
+    UserCoverComponent,
+    UserSidebarComponent,
 
     NotFoundComponent,
     ForbiddenComponent,
@@ -103,7 +107,7 @@ import { ModUsersDisableComponent } from './pages/dashboard/moderation/users/mod
     ModUsersComponent,
     ModUsersViewComponent,
     ModUsersEditComponent,
-    ModUsersDisableComponent
+    ModUsersDisableComponent,
   ],
   imports: [
     BrowserModule,
