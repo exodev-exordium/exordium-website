@@ -61,19 +61,6 @@ export class AuthService {
         }
     }
 
-    // User Data
-    getUserData(): Observable<any> {
-        const api = `${this.endpoint}/user/me`;
-        return this.http.get(api, { headers: this.headers }).pipe(
-            map(
-                (res: Response) => {
-                    return res || {};
-                }
-            ),
-            catchError(this.handleError)
-        );
-    }
-
     // Get User Token
     getToken() {
         return localStorage.getItem('access_token');
