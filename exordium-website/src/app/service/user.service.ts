@@ -34,9 +34,35 @@ export class UserService {
         return throwError(msg);
     }
 
-    // User Data
-    getUserData (): Observable<any> {
-        let api = `${this.endpoint}/user/me`;
+    // Basic User Data
+    getUserDataBasic (): Observable<any> {
+        let api = `${this.endpoint}/user/me/basic`;
+        return this.http.get(api, { headers: this.headers }).pipe(
+            map(
+                (res: Response) => {
+                    return res || {};
+                }
+            ),
+            catchError(this.handleError)
+        )
+    }
+
+    // Advanced User Data
+    getUserDataAdvanced (): Observable<any> {
+        let api = `${this.endpoint}/user/me/advanced`;
+        return this.http.get(api, { headers: this.headers }).pipe(
+            map(
+                (res: Response) => {
+                    return res || {};
+                }
+            ),
+            catchError(this.handleError)
+        )
+    }
+
+    // User Tokens
+    getUserTokens (): Observable<any> {
+        let api = `${this.endpoint}/user/me/tokens`;
         return this.http.get(api, { headers: this.headers }).pipe(
             map(
                 (res: Response) => {
