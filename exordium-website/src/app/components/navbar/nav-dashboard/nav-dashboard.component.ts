@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject, HostListener } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { AuthService } from 'src/app/service/auth.service';
+import { UserService } from 'src/app/service/user.service';
 import { Account } from 'src/app/service/shared/account';
 
 import * as jQuery from 'jquery';
@@ -22,14 +23,15 @@ export class NavDashboardComponent implements OnInit {
 
   constructor(
     @Inject (DOCUMENT) private document: Document,
-    private authService: AuthService
+    private authService: AuthService,
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
     if (this.authService.isSignedIn === true) {
       this.signedIn = true;
 
-      this.authService.getUserData().subscribe(res => {
+      this.userService.getUserDataBasic().subscribe(res => {
         this.currentUser = res.response;
 
         if (this.checkRoles(this.moderationAccessRoles, this.currentUser.access.roles)) {
