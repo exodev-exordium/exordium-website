@@ -36,7 +36,7 @@
       </a>
       <div class="dropdown-menu dropdown-menu-right dropdown-content">
         <h6 class="dropdown-header">Account</h6>
-        <a class="dropdown-item" href="javascript:;" routerLink="/dashboard/user" routerLinkActive="active">Profile</a>
+        <a class="dropdown-item" href="javascript:;" routerLink="/dashboard/user" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Profile</a>
         <a class="dropdown-item" href="javascript:;" routerLink="/dashboard/user/sessions" routerLinkActive="active">Sessions</a>
         <a class="dropdown-item" href="javascript:;" routerLink="/dashboard/user/logs" routerLinkActive="active">Logs</a>
         <a class="dropdown-item" href="javascript:;" routerLink="/dashboard/user/connections" routerLinkActive="active">Connections</a>
