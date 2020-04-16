@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/service/auth.service';
+import { UserService } from 'src/app/service/user.service';
 import { jarallax } from 'jarallax';
 
 @Component({
@@ -11,7 +11,7 @@ export class UserCoverComponent implements OnInit {
   public currentUser;
   
   constructor(
-    public authService: AuthService
+    public userService: UserService
     ) { }
 
   ngOnInit(): void {
@@ -19,7 +19,7 @@ export class UserCoverComponent implements OnInit {
       speed: 0.6
     });
 
-    this.authService.getUserData().subscribe(res => {
+    this.userService.getUserDataBasic().subscribe(res => {
       this.currentUser = res.response;
     });
   }

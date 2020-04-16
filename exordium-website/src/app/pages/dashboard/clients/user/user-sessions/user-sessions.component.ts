@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/service/auth.service';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-user-sessions',
@@ -10,11 +10,11 @@ export class UserSessionsComponent implements OnInit {
   public currentUser;
 
   constructor(
-    public authService: AuthService
+    public userService: UserService
   ) { }
 
   ngOnInit() {
-    this.authService.getUserData().subscribe(res => {
+    this.userService.getUserDataBasic().subscribe(res => {
       this.currentUser = res.response;
     });
   }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/service/auth.service';
+import { UserService } from 'src/app/service/user.service';
 
 import { jarallax, jarallaxElement } from 'jarallax';
 
@@ -21,7 +22,8 @@ export class SigninComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     public authService: AuthService,
-    public router: Router
+    private userService: UserService,
+    private router: Router
   ) {
     this.signinForm = this.formBuilder.group({
       email: [null, [Validators.required, Validators.email]],
@@ -90,7 +92,7 @@ export class SigninComponent implements OnInit {
       this.authService.signin(this.signinForm.value).subscribe((res) => {
         localStorage.setItem('access_token', res.token);
 
-        this.authService.getUserData().subscribe(
+        this.userService.getUserDataBasic().subscribe(
             (res) => {
                 this.router.navigate([`/dashboard`]);
             }

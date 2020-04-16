@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/service/auth.service';
+import { UserService } from 'src/app/service/user.service';
 import { ModerationService } from 'src/app/service/moderation.service';
 import { Account } from 'src/app/service/shared/account';
 
@@ -15,12 +15,12 @@ export class ModUsersComponent implements OnInit {
 
   constructor(
     public router: Router,
-    private authService: AuthService,
+    public userService: UserService,
     private moderationService: ModerationService
   ) { }
 
   ngOnInit(): void {
-    this.authService.getUserData().subscribe(res => {
+    this.userService.getUserDataBasic().subscribe(res => {
       this.currentUser = res.response;
 
       this.checkPermissions();
