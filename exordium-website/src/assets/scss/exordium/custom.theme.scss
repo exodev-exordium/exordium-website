@@ -241,3 +241,10 @@ textarea.ng-dirty.ng-valid {
 .dropdown-divider {
     margin: 0.75rem 0 !important;
 }
+
+// Sidebar Menu
+.user-sidebar {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 10.5rem;
+}
