@@ -1,29 +1,75 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { transition, trigger, query, style, animate, group, animateChild } from '@angular/animations';
+import { Event, Router, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
 import { Title } from '@angular/platform-browser';
-
-import { map, filter, scan } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [
+
+    trigger('myAnimation', [
+      transition('* => *', [
+        query(
+          ':enter',
+          [style({ opacity: 0 })],
+          { optional: true }
+        ),
+        query(
+          ':leave',
+           [style({ opacity: 1 }), animate('0.3s', style({ opacity: 0 }))],
+          { optional: true }
+        ),
+        query(
+          ':enter',
+          [style({ opacity: 0 }), animate('0.3s', style({ opacity: 1 }))],
+          { optional: true }
+        )
+      ])
+    ])
+
+  ]
 })
 
 export class AppComponent implements OnInit {
-  constructor(private router: Router, private titleService: Title) {}
+  loading: boolean;
+
+  constructor(
+    private router: Router, 
+    private titleService: Title
+  ) {}
 
   ngOnInit() {
 
-    this.router.events
-      .pipe(
-        filter((event: any) => event instanceof NavigationEnd),
-        map(() => this.router)
-      ).subscribe((event) => {
-        const title = this.getTitle(this.router.routerState, this.router.routerState.root).join(' - ');
-        this.titleService.setTitle(`Exordium - ${title}`);
+    this.router.events.subscribe((event: Event) => {
+      switch (true) {
+        case event instanceof NavigationStart: {
+          //this.loading = true;
+          document.querySelector('body').classList.remove('loaded'); 
+          break;
+        }
+        case event instanceof NavigationEnd: {
+          const title = this.getTitle(this.router.routerState, this.router.routerState.root).join(' - ');
+          this.titleService.setTitle(`Exordium - ${title}`);
+
+          setTimeout(() => {
+            document.querySelector('body').classList.add('loaded'); 
+          }, 1000);
+        }
+        case event instanceof NavigationCancel:
+        case event instanceof NavigationError: {
+          setTimeout(() => {
+            document.querySelector('body').classList.add('loaded'); 
+          }, 1000);
+          
+          break;
+        }
+        default: {
+          break;
+        }
       }
-    );
+    });
   }
 
   getTitle(state, parent) {

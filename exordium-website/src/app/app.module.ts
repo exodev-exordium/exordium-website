@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HashLocationStrategy, LocationStrategy  } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -111,6 +112,7 @@ import { ModUsersDisableComponent } from './pages/dashboard/moderation/users/mod
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     RecaptchaModule,
     RecaptchaFormsModule,
     FormsModule,
