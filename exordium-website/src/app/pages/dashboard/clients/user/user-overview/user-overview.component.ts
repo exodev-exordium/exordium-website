@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/service/auth.service';
 import { UserService } from 'src/app/service/user.service';
+import { Countries } from 'src/app/service/country.component';
 
 @Component({
   selector: 'app-user-overview',
@@ -8,7 +9,9 @@ import { UserService } from 'src/app/service/user.service';
   styleUrls: ['./user-overview.component.scss']
 })
 export class UserOverviewComponent implements OnInit {
-  public currentUser;
+  currentUser: any;
+  countries: any;
+  selectedCountry: any;
 
   constructor(
     public authService: AuthService,
@@ -16,10 +19,10 @@ export class UserOverviewComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.countries = new Countries().countries;
+
     this.userService.getUserDataAdvanced().subscribe(res => {
       this.currentUser = res.response;
-
-      console.log(this.currentUser)
     });
   }
   
