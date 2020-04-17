@@ -25,5 +25,5 @@ export class UserOverviewComponent implements OnInit {
       this.currentUser = res.response;
     });
   }
-  
+
 }

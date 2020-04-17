@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
   loading: boolean;
 
   constructor(
-    private router: Router, 
+    private router: Router,
     private titleService: Title
   ) {}
 
@@ -45,8 +45,8 @@ export class AppComponent implements OnInit {
     this.router.events.subscribe((event: Event) => {
       switch (true) {
         case event instanceof NavigationStart: {
-          //this.loading = true;
-          document.querySelector('body').classList.remove('loaded'); 
+          // this.loading = true;
+          document.querySelector('body').classList.remove('loaded');
           break;
         }
         case event instanceof NavigationEnd: {
@@ -54,15 +54,15 @@ export class AppComponent implements OnInit {
           this.titleService.setTitle(`Exordium - ${title}`);
 
           setTimeout(() => {
-            document.querySelector('body').classList.add('loaded'); 
+            document.querySelector('body').classList.add('loaded');
           }, 1000);
         }
         case event instanceof NavigationCancel:
         case event instanceof NavigationError: {
           setTimeout(() => {
-            document.querySelector('body').classList.add('loaded'); 
+            document.querySelector('body').classList.add('loaded');
           }, 1000);
-          
+
           break;
         }
         default: {

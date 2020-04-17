@@ -9,7 +9,7 @@ import { jarallax } from 'jarallax';
 })
 export class UserCoverComponent implements OnInit {
   public currentUser;
-  
+
   constructor(
     public userService: UserService
     ) { }
