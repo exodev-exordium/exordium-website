@@ -21,12 +21,15 @@ import 'bootstrap-notify';
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   countries: any;
+  selectedCountry: any;
 
   constructor(
     private formBuilder: FormBuilder,
     public authService: AuthService,
     public router: Router
-  ) {
+  ) { }
+
+  ngOnInit() {
     this.countries = new Countries().countries;
 
     this.registerForm = this.formBuilder.group({
@@ -38,9 +41,7 @@ export class RegisterComponent implements OnInit {
       confirmPassword: [null, Validators.required],
       recaptcha: [null, Validators.required]
     }, { validator: MustMatch('password', 'confirmPassword') });
-  }
 
-  ngOnInit() {
     this.initPlugins();
   }
 
