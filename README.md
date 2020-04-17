@@ -20,6 +20,7 @@ When the `exordium-website` finally goes live it will be viewable from [our webs
 
 The website currently has the following pages and features, more will be added with time and as we find that further features are neccessary;
 
+### Pages 
 - [x] Welcome page (showcases our mobile and desktop apps)
 - [x] About Us
     - [ ] General
@@ -37,7 +38,21 @@ The website currently has the following pages and features, more will be added w
     - [ ] Locked (requires password re-entry)
 - [ ] Dashboard
     - [ ] Profile
+    - [ ] Sessions
+    - [ ] Logs
+    - [ ] Connections
     - [ ] Settings
+    - [ ] Moderation
+        - [ ] Contact Requests
+        - [ ] User Management
+
+### Services
+
+- [x] Contact Service
+- [x] Auth Service
+- [x] Auth Guard
+- [x] User Service
+- [x] Moderation Service
 
 ## Issues & Suggestions
 
@@ -55,7 +70,6 @@ If you want to send us an email, regarding any issue, you can send an email to:
 
 The following contributors have either helped to start this project, contributed code, or are actively maintaining it (including documentation, and creating issues), or are in some other way being awesome contributors to this project and we would like to take a moment to recognize them.
 
-[<img src="https://github.com/FriedOctopus.png?size=72" alt="FriedOctopus" width="72">](https://github.com/FriedOctopus)
 [<img src="https://github.com/BradOnDex.png?size=72" alt="BradOnDex" width="72">](https://github.com/BradOnDex)
 
 The Exordium development team:
