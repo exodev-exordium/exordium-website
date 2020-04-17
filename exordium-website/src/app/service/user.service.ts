@@ -15,13 +15,13 @@ export class UserService {
     private endpoint = new API().endpoint;
     private headers = new API().headers;
 
-    constructor (
+    constructor(
         private http: HttpClient,
         public router: Router
     ) { }
 
     // Handle Errors
-    handleError (error: HttpErrorResponse) {
+    handleError(error: HttpErrorResponse) {
         let msg = '';
         if (error.error instanceof ErrorEvent) {
             // client-side error
@@ -35,8 +35,8 @@ export class UserService {
     }
 
     // Basic User Data
-    getUserDataBasic (): Observable<any> {
-        let api = `${this.endpoint}/user/me/basic`;
+    getUserDataBasic(): Observable<any> {
+        const api = `${this.endpoint}/user/me/basic`;
         return this.http.get(api, { headers: this.headers }).pipe(
             map(
                 (res: Response) => {
@@ -44,12 +44,12 @@ export class UserService {
                 }
             ),
             catchError(this.handleError)
-        )
+        );
     }
 
     // Advanced User Data
-    getUserDataAdvanced (): Observable<any> {
-        let api = `${this.endpoint}/user/me/advanced`;
+    getUserDataAdvanced(): Observable<any> {
+        const api = `${this.endpoint}/user/me/advanced`;
         return this.http.get(api, { headers: this.headers }).pipe(
             map(
                 (res: Response) => {
@@ -57,12 +57,12 @@ export class UserService {
                 }
             ),
             catchError(this.handleError)
-        )
+        );
     }
 
     // User Tokens
-    getUserTokens (): Observable<any> {
-        let api = `${this.endpoint}/user/me/tokens`;
+    getUserTokens(): Observable<any> {
+        const api = `${this.endpoint}/user/me/tokens`;
         return this.http.get(api, { headers: this.headers }).pipe(
             map(
                 (res: Response) => {
@@ -70,6 +70,6 @@ export class UserService {
                 }
             ),
             catchError(this.handleError)
-        )
+        );
     }
 }
