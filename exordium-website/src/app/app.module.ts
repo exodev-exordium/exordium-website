@@ -54,6 +54,7 @@ import { UserSessionsComponent } from './pages/dashboard/clients/user/user-sessi
 import { UserLogsComponent } from './pages/dashboard/clients/user/user-logs/user-logs.component';
 import { UserConnectionsComponent } from './pages/dashboard/clients/user/user-connections/user-connections.component';
 import { UserSettingsComponent } from './pages/dashboard/clients/user/user-settings/user-settings.component';
+import { UserSecurityComponent } from './pages/dashboard/clients/user/user-security/user-security.component';
 
 // Moderation
 import { ModContactComponent } from './pages/dashboard/moderation/mod-contact/mod-contact.component';
@@ -103,6 +104,7 @@ import { ModUsersDisableComponent } from './pages/dashboard/moderation/users/mod
     UserLogsComponent,
     UserConnectionsComponent,
     UserSettingsComponent,
+    UserSecurityComponent,
 
     ModContactComponent,
     ModUsersComponent,
