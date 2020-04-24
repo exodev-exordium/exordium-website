@@ -24,6 +24,42 @@
         </div>
 
         <div class="card card-body shadow-sm">
+          <h3>Profile</h3>
+
+          <div class="form-group row">
+            <label for="staticEmail" class="col-sm-2 col-form-label">Username</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="staticEmail" value="{{this.currentUser.username}}" readonly>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="staticEmail" value="{{this.currentUser.email}}" readonly>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="staticPassword" class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="staticPassword" value="************" readonly>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="staticEmail" class="col-sm-2 col-form-label">Realname</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="staticEmail" value="{{this.currentUser.realname}}" readonly>
+            </div>
+          </div>
+
+          <p>
+            <a href="javascript:;">
+              <i class="fa fa-fw fa-user"></i>
+              Edit Profile
+            </a>
+          </p>
+        </div>
+
+        <div class="card card-body shadow-sm">
           <h3>Alerts</h3>
           <p>
             
