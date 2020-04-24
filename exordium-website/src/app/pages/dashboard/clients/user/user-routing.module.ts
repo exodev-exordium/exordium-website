@@ -10,6 +10,7 @@ import { UserSessionsComponent } from './user-sessions/user-sessions.component';
 import { UserLogsComponent } from './user-logs/user-logs.component';
 import { UserConnectionsComponent } from './user-connections/user-connections.component';
 import { UserSettingsComponent } from './user-settings/user-settings.component';
+import { UserSecurityComponent } from './user-security/user-security.component';
 
 const routes: Routes = [
   {
@@ -52,6 +53,13 @@ const routes: Routes = [
         component: UserSettingsComponent,
         data: {
           title: 'Settings'
+        }
+      },
+      {
+        path: 'security',
+        component: UserSecurityComponent,
+        data: {
+          title: 'Security'
         }
       }
     ]
