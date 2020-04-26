@@ -14,7 +14,11 @@ We hope to share as much of our programming as open source code to help others c
 
 ## Website
 
-When the `exordium-website` finally goes live it will be viewable from [our website](https://exordium.dev). However, in the meantime you can check out [the repo pages](https://exordium-dev.github.io/exordium-website/).
+The `exordium-website` repo is live and viewable from `https://exordium.org`. We will continue to work on the website and have updates posted realtime until we go live. Once we go live, the developmental exordium website will be viewed from `https://exordium.dev`. 
+
+## API
+
+The `exordium-website` connects and runs through our `exordium-api` system. You can view our progress with that part of the project [here](https://github.com/exordium-dev/exordium-api). 
 
 ## Features
 
@@ -41,10 +45,25 @@ The website currently has the following pages and features, more will be added w
     - [ ] Sessions
     - [ ] Logs
     - [ ] Connections
+        - [ ] Discord
+        - [ ] GitHub
+    - [ ] Security
+        - [ ] 2FA
+        - [ ] Password Change
     - [ ] Settings
     - [ ] Moderation
-        - [ ] Contact Requests
-        - [ ] User Management
+        - [ ] Search
+        - [ ] Support
+            - [ ] Contact
+                - [ ] Overview Thread
+                - [ ] Respond
+                - [ ] Completed
+            - [ ] Live Support
+        - [ ] Realtime Visitors/Traffic
+        - [ ] Users
+            - [ ] Overview
+            - [ ] Edit
+            - [ ] Disable
 
 ### Services
 
@@ -70,6 +89,7 @@ If you want to send us an email, regarding any issue, you can send an email to:
 
 The following contributors have either helped to start this project, contributed code, or are actively maintaining it (including documentation, and creating issues), or are in some other way being awesome contributors to this project and we would like to take a moment to recognize them.
 
+[<img src="https://github.com/FriedOctopus.png?size=72" alt="FriedOctopus" width="72">](https://github.com/FriedOctopus)
 [<img src="https://github.com/BradOnDex.png?size=72" alt="BradOnDex" width="72">](https://github.com/BradOnDex)
 
 The Exordium development team:
