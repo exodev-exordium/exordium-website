@@ -72,4 +72,30 @@ export class UserService {
             catchError(this.handleError)
         );
     }
+
+    // Connect Discord
+    connectDiscord(): Observable<any> {
+        const api = `${this.endpoint}/user/connections/discord`;
+        return this.http.get(api, { headers: this.headers }).pipe(
+            map(
+                (res: Response) => {
+                    return res || {};
+                }
+            ),
+            catchError(this.handleError)
+        );
+    }
+
+    // Connect GitHub
+    connectGithub(): Observable<any> {
+        const api = `${this.endpoint}/user/connections/github`;
+        return this.http.get(api, { headers: this.headers }).pipe(
+            map(
+                (res: Response) => {
+                    return res || {};
+                }
+            ),
+            catchError(this.handleError)
+        );
+    }
 }
