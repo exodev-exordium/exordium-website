@@ -50,16 +50,16 @@ export class ModerationService {
         );
     }
 
-        // Get Contact Emails
-        getUsers(): Observable<any> {
-            const api = `${this.endpoint}/moderation/users`;
-            return this.http.get(api, { headers: this.headers }).pipe(
-                map(
-                    (res: Response) => {
-                        return res || {};
-                    }
-                ),
-                catchError(this.handleError)
-            );
-        }
+    // Get Users
+    getUsers(): Observable<any> {
+        const api = `${this.endpoint}/moderation/users`;
+        return this.http.get(api, { headers: this.headers }).pipe(
+            map(
+                (res: Response) => {
+                    return res || {};
+                }
+            ),
+            catchError(this.handleError)
+        );
+    }
 }
