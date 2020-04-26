@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { transition, trigger, query, style, animate, group, animateChild } from '@angular/animations';
+import { transition, trigger, query, style, animate } from '@angular/animations';
 import { Event, Router, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
@@ -38,9 +38,22 @@ export class AppComponent implements OnInit {
   constructor(
     private router: Router,
     private titleService: Title
-  ) {}
+  ) { }
 
   ngOnInit() {
+
+    // HUGE_ISSUE: Angular removes the parameters for discord callback. 
+    // example url: https://localhost:4200/?code=1234567890/#/dashboard/user/connections
+    // ^ above ignores the param and just redirects to: https://localhost:4200/#/dashboard/user/connections
+    // what we are doing with the following code is forwarding before we reroute.
+    // https://localhost:4200/#/dashboard/user/connections?code=1234567890
+
+    const currentHref = location.href.split(/[?#]/);
+    const containsCode = currentHref[1].includes('code=');
+    if (containsCode) {
+      const discordCode = location.href.split(/[?#]/)[1].replace('code=', '');
+      this.router.navigate(['dashboard/user/connections'], { queryParams: { discord: discordCode }}); 
+    }
 
     this.router.events.subscribe((event: Event) => {
       switch (true) {
