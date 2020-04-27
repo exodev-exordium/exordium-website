@@ -29,16 +29,23 @@
           <div class="icon-round mb-3 mb-md-4 bg-primary">
             <i class="fab fa-discord"></i>
           </div>
-          <span class="badge badge-danger">
+          <span class="badge badge-danger" *ngIf="!currentUser.connections.discord">
             <i class="fa fa-fw fa-times"></i>
             Disconnected
           </span>
+          <span class="badge badge-success" *ngIf="currentUser.connections.discord">
+            <i class="fa fa-fw fa-check"></i>
+            Connected
+          </span>
           <div>
             <h3>Discord</h3>
-            <p class="lead">
+            <p class="lead" *ngIf="!currentUser.connections.discord">
               Connect your Discord account to Exordium
             </p>
-            <a href="https://discordapp.com/api/oauth2/authorize?client_id=703772197692375071&redirect_uri=https%3A%2F%2Fexordium.org%2F&response_type=token&scope=identify%20email%20guilds.join">
+            <p class="lead" *ngIf="currentUser.connections.discord">
+              Your account, {{currentUser.connections.discord.username}}#{{currentUser.connections.discord.discriminator}} is connected to Exordium!
+            </p>
+            <a href="https://discordapp.com/api/oauth2/authorize?client_id=703772197692375071&redirect_uri=https%3A%2F%2Fexordium.org%2F&response_type=token&scope=identify%20email%20guilds.join" *ngIf="!currentUser.connections.discord">
               <i class="fab fa-fw fa-discord"></i>
               Connect your account
             </a>

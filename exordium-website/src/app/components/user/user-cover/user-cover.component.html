@@ -43,11 +43,11 @@
               Developer
             </span>
 
-            <span class="badge badge-secondary mr-2">
+            <span class="badge badge-secondary mr-2" *ngIf="currentUser.connections.github">
               <i class="fab fa-fw fa-github"></i>
               Github
             </span>
-            <span class="badge badge-secondary mr-2">
+            <span class="badge badge-secondary mr-2" *ngIf="currentUser.connections.discord">
               <i class="fab fa-fw fa-discord"></i>
               Discord
             </span>
