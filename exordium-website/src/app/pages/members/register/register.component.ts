@@ -106,7 +106,7 @@ export class RegisterComponent implements OnInit {
           notify.update({
             type: 'success',
             icon: 'fa fa-fw fa-check',
-            message: `<strong>Success!</strong> Your Exordium account has been successfully created!.`
+            message: `<strong>Success!</strong> Your Exordium account has been successfully created!`
           });
         }
       },
