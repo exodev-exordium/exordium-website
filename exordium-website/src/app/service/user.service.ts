@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 // Variables
 import { API } from './shared/api';
 import { User } from './shared/user';
+import { DiscordToken } from './shared/Tokens';
 
 @Injectable({
     providedIn: 'root'
@@ -74,14 +75,10 @@ export class UserService {
     }
 
     // Connect Discord
-    connectDiscord(): Observable<any> {
+    connectDiscord(token: DiscordToken): Observable<any> {
         const api = `${this.endpoint}/user/connections/discord`;
-        return this.http.get(api, { headers: this.headers }).pipe(
-            map(
-                (res: Response) => {
-                    return res || {};
-                }
-            ),
+
+        return this.http.post (api, token, { headers: this.headers }).pipe(
             catchError(this.handleError)
         );
     }

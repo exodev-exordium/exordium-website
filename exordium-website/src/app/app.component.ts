@@ -49,10 +49,10 @@ export class AppComponent implements OnInit {
     // https://localhost:4200/#/dashboard/user/connections?code=1234567890
 
     const currentHref = location.href.split(/[?#]/);
-    const containsCode = currentHref[1].includes('code=');
-    if (containsCode) {
-      const discordCode = location.href.split(/[?#]/)[1].replace('code=', '');
-      this.router.navigate(['dashboard/user/connections'], { queryParams: { discord: discordCode }}); 
+    const containsToken = currentHref[1].includes('token_type=');
+    if (containsToken) {
+      const discordToken = location.href.split(/[&]/)[1].replace('access_token=', '');;
+      this.router.navigate(['dashboard/user/connections'], { queryParams: { discord: discordToken }}); 
     }
 
     this.router.events.subscribe((event: Event) => {
