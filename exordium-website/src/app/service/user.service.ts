@@ -76,7 +76,7 @@ export class UserService {
 
     // Connect Discord
     connectDiscord(token: DiscordToken): Observable<any> {
-        const api = `${this.endpoint}/user/connections/discord`;
+        const api = `${this.endpoint}/user/me/connection/discord`;
 
         return this.http.post (api, token, { headers: this.headers }).pipe(
             catchError(this.handleError)
@@ -85,7 +85,7 @@ export class UserService {
 
     // Connect GitHub
     connectGithub(): Observable<any> {
-        const api = `${this.endpoint}/user/connections/github`;
+        const api = `${this.endpoint}/user/me/connection/github`;
         return this.http.get(api, { headers: this.headers }).pipe(
             map(
                 (res: Response) => {
