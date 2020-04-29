@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ColumnMode, SelectionType } from '@swimlane/ngx-datatable';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 import { UserService } from 'src/app/service/user.service';
 import { ModerationService } from 'src/app/service/moderation.service';
-import { Account } from 'src/app/service/shared/account';
+
 
 @Component({
   selector: 'app-mod-contact',
@@ -10,13 +13,21 @@ import { Account } from 'src/app/service/shared/account';
   styleUrls: ['./mod-contact.component.scss']
 })
 export class ModContactComponent implements OnInit {
-  currentUser = new Account();
+  // User Autentication
+  currentUser: any;
+
+  // Contact Emails Table
   contactEmails: any[];
+  loadingIndicator = true;
+  selected = [];
+  columnMode = ColumnMode;
+  selectionType = SelectionType;
 
   constructor(
     public router: Router,
     public userService: UserService,
-    private moderationService: ModerationService
+    private moderationService: ModerationService,
+    private modalService: NgbModal
   ) { }
 
   ngOnInit(): void {
@@ -37,11 +48,21 @@ export class ModContactComponent implements OnInit {
       this.moderationService.contactEmails().subscribe(res => {
         this.contactEmails = res;
         console.log(this.contactEmails);
+        this.loadingIndicator = false;
       });
 
     } else {
       this.router.navigate(['dashboard']);
     }
+  }
+
+  onSelect({selected}) {
+    console.log(`Select Event: `, selected, this.selected);
+    
+  }
+
+  onView(content) {
+    this.modalService.open(content, { centered: true });
   }
 
 }
