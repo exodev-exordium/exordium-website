@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ColumnMode, SelectionType } from '@swimlane/ngx-datatable';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
+
 import { UserService } from 'src/app/service/user.service';
 import { ModerationService } from 'src/app/service/moderation.service';
-import { Account } from 'src/app/service/shared/account';
 
 @Component({
   selector: 'app-mod-users',
@@ -10,13 +13,21 @@ import { Account } from 'src/app/service/shared/account';
   styleUrls: ['./mod-users.component.scss']
 })
 export class ModUsersComponent implements OnInit {
-  public currentUser = new Account();
+  // User Autentication
+  currentUser: any;
+
+  // Users Table
   users: any[];
+  loadingIndicator = true;
+  selected = [];
+  columnMode = ColumnMode;
+  selectionType = SelectionType;
 
   constructor(
     public router: Router,
     public userService: UserService,
-    private moderationService: ModerationService
+    private moderationService: ModerationService,
+    private modalService: NgbModal
   ) { }
 
   ngOnInit(): void {
@@ -36,10 +47,15 @@ export class ModUsersComponent implements OnInit {
       this.moderationService.getUsers().subscribe(res => {
         this.users = res;
         console.log(this.users);
+        this.loadingIndicator = false;
       });
     } else {
       this.router.navigate(['dashboard']);
     }
+  }
+
+  onSelect({selected}) {
+    console.log(`Select Event: `, selected, this.selected); 
   }
 
 }
