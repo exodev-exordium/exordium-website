@@ -2,6 +2,10 @@
 @import '~@swimlane/ngx-datatable/themes/material.scss';
 @import '~@swimlane/ngx-datatable/assets/icons.css';
 
+// fix dropdown not appearing after table ends
+.ngx-datatable { 
+    overflow: initial !important;
+}  
 // display dropdown inside cell
 .datatable-dropdown-cell {
     overflow: visible !important;
