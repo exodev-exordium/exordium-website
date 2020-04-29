@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { RecaptchaModule, RecaptchaFormsModule, RECAPTCHA_SETTINGS, RecaptchaSettings } from 'ng-recaptcha';
 import { InlineSVGModule } from 'ng-inline-svg';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 // Main App Components
 import { AppRoutingModule } from './app-routing.module';
@@ -120,6 +121,7 @@ import { ModUsersDisableComponent } from './pages/dashboard/moderation/users/mod
     FormsModule,
     ReactiveFormsModule,
     NgSelectModule,
+    NgxDatatableModule,
     HttpClientModule,
     InlineSVGModule.forRoot(),
     AppRoutingModule
