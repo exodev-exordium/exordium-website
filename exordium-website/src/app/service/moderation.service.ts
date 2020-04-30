@@ -62,4 +62,17 @@ export class ModerationService {
             catchError(this.handleError)
         );
     }
+
+    // Get User
+    getUser(id): Observable<any> {
+        const api = `${this.endpoint}/moderation/user/${id}`;
+        return this.http.get(api, { headers: this.headers }).pipe(
+            map(
+                (res: Response) => {
+                    return res || {};
+                }
+            ),
+            catchError(this.handleError)
+        );
+    }
 }
