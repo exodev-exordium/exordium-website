@@ -1,1 +1,119 @@
-<p>mod-users-edit works!</p>
+<!-- Header -->
+<app-dark-header></app-dark-header>
+
+<!-- Title -->
+<section class="bg-primary-3 text-light" *ngIf="editUser">
+    <div class="container">
+        <h2 class="display-4">
+            Editing: <span class="text-capitalize">{{editUser.username}}</span>
+        </h2>
+        <p class="lead">
+            You're editing a user account of Exordium. Please don't forget to save any changes you make!
+        </p>
+    </div>
+</section>
+
+<!-- Edit User -->
+<section class="bg-primary-alt">
+    <div class="container" *ngIf="editUser">
+
+        <div class="row">
+            <div class="col-md-3 text-center mb-4">
+                <!-- Profile Picture -->
+                <img src="assets/img/exordium/default-profile.png" alt="Avatar" class="avatar avatar-xlg shadow-lg mb-4">
+                
+                <!-- Username -->
+                <p class="display-4 text-capitalize" style="font-size: 2rem;">{{editUser.username}}</p>
+
+                <!-- Title -->
+                <p><span class="badge badge-dark">{{editUser.title}}</span></p>
+
+                <!-- Other Information -->
+
+            </div>
+
+            <div class="col-md-9">
+                <div class="card card-body shadow-sm">
+                    <ul class="nav nav-pills mb-3" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
+                                User
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">
+                                Moderation
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">
+                                Administration
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <form>
+                                <div class="form-group">
+                                    <label>Username</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                            <i class="fa fa-fw fa-user"></i>
+                                            </span>
+                                        </div>
+                                        <input name="username" type="text" placeholder="{{editUser.username}}" class="form-control" required value="{{editUser.username}}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                            <i class="fa fa-fw fa-envelope"></i>
+                                            </span>
+                                        </div>
+                                        <input name="email" type="email" placeholder="{{editUser.email}}" class="form-control" required value="{{editUser.email}}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Real Name</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                            <i class="fa fa-fw fa-person-sign"></i>
+                                            </span>
+                                        </div>
+                                        <input name="realname" type="text" placeholder="{{editUser.realname}}" class="form-control" required value="{{editUser.realname}}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Country</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                            <i class="fa fa-fw fa-person-sign"></i>
+                                            </span>
+                                        </div>
+                                        <ng-select
+                                            class="form-control"
+                                            placeholder="Canada"
+                                            [items]="countries"
+                                            bindLabel="name">
+                                        </ng-select>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+                        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Footer -->
+<app-footer-primary></app-footer-primary>
