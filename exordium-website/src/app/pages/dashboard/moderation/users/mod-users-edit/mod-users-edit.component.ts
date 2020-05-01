@@ -5,6 +5,7 @@ import { UserService } from 'src/app/service/user.service';
 import { ModerationService } from 'src/app/service/moderation.service';
 
 import { Countries } from 'src/app/service/country.component';
+import { Permissions } from 'src/app/service/variables/permissions.var';
 
 @Component({
   selector: 'app-mod-users-edit',
@@ -15,9 +16,13 @@ export class ModUsersEditComponent implements OnInit {
   // User Autentication
   currentUser: any;
 
+  // Country and Permission Variables
+  countries: any;
+  permissions = [];
+
   // Editing User
   editUser: any;
-  countries: any;
+  editUserPermissions = [];
 
   constructor(
     private router: Router,
@@ -28,6 +33,7 @@ export class ModUsersEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.countries = new Countries().countries;
+    this.permissions = new Permissions().roles;
 
     this.userService.getUserDataBasic().subscribe(res => {
       this.currentUser = res.response;
@@ -46,6 +52,11 @@ export class ModUsersEditComponent implements OnInit {
         this.moderationService.getUser(params.get('id')).subscribe(res => {
           this.editUser = res;
           console.log(this.editUser);
+
+          this.editUserPermissions = this.editUser.access.roles.map((item) => {
+            return item.role
+          });
+          console.log(this.editUserPermissions);
         });
       });
     } else {
