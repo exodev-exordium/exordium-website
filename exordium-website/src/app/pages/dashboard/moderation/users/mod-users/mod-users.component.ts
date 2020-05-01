@@ -61,7 +61,7 @@ export class ModUsersComponent implements OnInit {
   }
 
   onSelect({selected}) {
-    console.log(`Select Event: `, selected, this.selected); 
+    console.log(`Select Event: `, selected, this.selected);
     this.selectedRoles = this.selected[0].access.roles.map((item) => {
         return item.role
     });

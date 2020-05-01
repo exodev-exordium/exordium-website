@@ -42,7 +42,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
 
-    // HUGE_ISSUE: Angular removes the parameters for discord callback. 
+    // HUGE_ISSUE: Angular removes the parameters for discord callback.
     // example url: https://localhost:4200/?code=1234567890/#/dashboard/user/connections
     // ^ above ignores the param and just redirects to: https://localhost:4200/#/dashboard/user/connections
     // what we are doing with the following code is forwarding before we reroute.
@@ -56,7 +56,7 @@ export class AppComponent implements OnInit {
       const containsToken = currentHref[1].includes('token_type=');
       if (containsToken) {
         const discordToken = location.href.split(/[&]/)[1].replace('access_token=', '');;
-        this.router.navigate(['dashboard/user/connections'], { queryParams: { discord: discordToken }}); 
+        this.router.navigate(['dashboard/user/connections'], { queryParams: { discord: discordToken }});
       }
     }
 

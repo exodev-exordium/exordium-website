@@ -19,7 +19,7 @@ export class UserConnectionsComponent implements OnInit {
     public userService: UserService,
     private route: ActivatedRoute,
     private router: Router
-  ) { 
+  ) {
     console.log(location);
   }
 
@@ -76,18 +76,18 @@ export class UserConnectionsComponent implements OnInit {
               message: `<strong>Error!</strong> Sorry there was an error connecting your account to Discord!`
             });
           });
-    
+
         }
         if (params.github) {
 
           this.userService.connectGithub().subscribe(res => {
             console.log(res);
-            //this.currentUser = res.response;
+            // this.currentUser = res.response;
           });
 
         }
       }
-    }); 
+    });
   }
 
 }
