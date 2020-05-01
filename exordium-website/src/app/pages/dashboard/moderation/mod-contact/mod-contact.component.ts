@@ -6,7 +6,6 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { UserService } from 'src/app/service/user.service';
 import { ModerationService } from 'src/app/service/moderation.service';
 
-
 @Component({
   selector: 'app-mod-contact',
   templateUrl: './mod-contact.component.html',
@@ -62,7 +61,7 @@ export class ModContactComponent implements OnInit {
   }
 
   onView(content) {
-    this.modalService.open(content, { centered: true });
+    this.modalService.open(content, { centered: true, size: 'lg' });
   }
 
 }
