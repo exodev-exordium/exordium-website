@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/service/auth.service';
 
-import { Countries } from 'src/app/service/country.component';
+import { Countries } from 'src/app/service/variables/countries.var';
 import { MustMatch } from 'src/app/helpers/mustmatch.validator';
 
 import { jarallax, jarallaxElement } from 'jarallax';

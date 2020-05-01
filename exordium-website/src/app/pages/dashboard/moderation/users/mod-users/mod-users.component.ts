@@ -5,6 +5,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { UserService } from 'src/app/service/user.service';
 import { ModerationService } from 'src/app/service/moderation.service';
+import { Countries } from 'src/app/service/variables/countries.var';
 import { Permissions } from 'src/app/service/variables/permissions.var';
 
 @Component({

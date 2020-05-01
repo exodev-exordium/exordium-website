@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/service/auth.service';
 import { UserService } from 'src/app/service/user.service';
-import { Countries } from 'src/app/service/country.component';
+
+import { Countries } from 'src/app/service/variables/countries.var';
 
 @Component({
   selector: 'app-user-overview',
