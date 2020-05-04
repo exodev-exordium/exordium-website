@@ -19,10 +19,12 @@ export class ModUsersEditComponent implements OnInit {
   // Country and Permission Variables
   countries: any;
   permissions = [];
+  titles = [];
 
   // Editing User
   editUser: any;
   editUserPermissions = [];
+  editUserTitle = '';
 
   constructor(
     private router: Router,
@@ -34,6 +36,7 @@ export class ModUsersEditComponent implements OnInit {
   ngOnInit(): void {
     this.countries = new Countries().countries;
     this.permissions = new Permissions().roles;
+    this.titles = new Permissions().titles;
 
     this.userService.getUserDataBasic().subscribe(res => {
       this.currentUser = res.response;
@@ -57,6 +60,8 @@ export class ModUsersEditComponent implements OnInit {
             return item.role
           });
           console.log(this.editUserPermissions);
+
+          this.editUserTitle = this.editUser.title;
         });
       });
     } else {

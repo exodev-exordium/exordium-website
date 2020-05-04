@@ -21,6 +21,20 @@ nav.navbar {
     }
 }
 
+// remove scrollbar in mobile view (Main NavBar)
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        overflow-y: hidden;
+    }
+}
+
+// Custom about dropdown bg
+.dropdown-grid {
+    background: rgba($primary-3, 0.90) !important;
+    backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
 // About Section and Dropdown
 section.aboutNav {
     background: rgba($primary-3, 1);
@@ -238,7 +252,7 @@ textarea.ng-dirty.ng-valid {
 }
 
 // Dropdowns
-.dropdown-menu {
+.dropdown-menu:not(.dropdown-grid) {
     &::before,
     &::after {
         position: absolute;

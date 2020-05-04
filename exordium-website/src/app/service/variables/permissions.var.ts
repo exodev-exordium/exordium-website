@@ -36,6 +36,49 @@ export class Permissions {
         }
     ]
 
+    public titles = [
+        {
+            title: 'User',
+            icon: 'fa-user',
+            bgColour: 'light'
+        },
+        {
+            title: 'Paid',
+            icon: 'fa-money-bill-wave',
+            bgColour: 'success'
+        },
+        {
+            title: 'Beta Tester',
+            icon: 'fa-tools',
+            bgColour: 'danger'
+        },
+        {
+            title: 'Community Supporter',
+            icon: 'fa-users',
+            bgColour: 'info'
+        },
+        {
+            title: 'Staff',
+            icon: 'fa-certificate',
+            bgColour: 'warning'
+        },
+        {
+            title: 'Moderator',
+            icon: 'fa-star',
+            bgColour: 'primary-3'
+        },
+        {
+            title: 'Administrator',
+            icon: 'fa-star-shooting',
+            bgColour: 'primary-2'
+        },
+        {
+            title: 'Developer',
+            icon: 'fa-code',
+            bgColour: 'primary'
+        }
+    ]
+
 }
 
 export interface Role {

@@ -2,8 +2,7 @@ import { Component, OnInit, Inject, HostListener } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { AuthService } from 'src/app/service/auth.service';
 
-import * as jQuery from 'jquery';
-const $ = jQuery;
+import $ from 'jquery';
 
 @Component({
   selector: 'app-dark-header',
@@ -49,11 +48,6 @@ export class DarkHeaderComponent implements OnInit {
     // Main Nav Framing
     $('nav.navbar').parent().css({
       'min-height': `${mainNavHeight}px`
-    });
-
-    // About Nav Spacing
-    $('.aboutNav').css({
-      top: `${mainNavHeight}px`
     });
 
   }

@@ -107,6 +107,35 @@
                             </form>
                         </div>
                         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                
+                            <div class="form-group">
+                                <label>Title</label>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                        <i class="fa fa-fw fa-person-sign"></i>
+                                        </span>
+                                    </div>
+                                    <ng-select
+                                        style="position: relative;flex: 1 1 auto;width: 1%;margin-bottom: 0;"
+                                        [items]="titles"
+                                        bindLabel="title"
+                                        bindValue="title"
+                                        [(ngModel)]="editUserTitle">
+                        
+                                    <ng-template ng-label-tmp let-item="item" let-clear="clear">
+                                        <span class="ng-value-label text-capitalize"><i class="fa fa-fw {{item.icon}} mr-1"></i> {{item.title}}</span>
+                                        <span class="ng-value-icon right" (click)="clear(item)" aria-hidden="true">×</span>
+                                    </ng-template>
+                        
+                                    <ng-template ng-option-tmp let-item="item">
+                                      <i class="fa fa-fw {{item.icon}} mr-2"></i>
+                                      <span class="text-capitalize">{{item.title}}</span>
+                                    </ng-template>
+                                  </ng-select>
+                                </div>
+                            </div>
+
                                 <div class="form-group">
                                     <label>Permissions</label>
                                     <div class="input-group mb-3">
